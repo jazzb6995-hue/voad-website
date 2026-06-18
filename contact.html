@@ -99,11 +99,12 @@
 
   <!-- ── PAGE HERO ───────────────────────────────────────── -->
   <header class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('https://picsum.photos/seed/voad-contact/1800/900');"></div>
+    <div class="page-hero-bg" data-setting="contactHeroImage"
+         style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80');">
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
       <h1>Get In Touch</h1>
-      <p>Tell us about your project — we'd love to hear from you</p>
+      <p>Tell us about your project. We would love to hear from you.</p>
     </div>
   </header>
 
@@ -163,7 +164,7 @@
             <option>Residential Architecture</option>
             <option>Interior Design</option>
             <option>Commercial &amp; Office Design</option>
-            <option>Haveli &amp; Heritage Restoration</option>
+            <option>Heritage Designs</option>
             <option>Renovation &amp; Remodelling</option>
             <option>Turnkey Solutions</option>
             <option>Not Sure Yet</option>
@@ -198,14 +199,15 @@
           One Studio.<br>Your Vision.<br>Complete Delivery.
         </h2>
         <p class="section-body reveal delay-2" style="color:rgba(248,247,244,.5);max-width:100%;">
-          From the first sketch to the day you walk through the door, VOAD is with you at every stage — concept, design development, contractor coordination, procurement, and final handover.
+          From the first sketch to the day you walk through the door, VOAD is with you at every stage: concept, design development, contractor coordination, procurement, and final handover.
         </p>
         <a href="portfolio.html" class="about-cta reveal delay-3"
            style="color:var(--bg);border-color:rgba(248,247,244,.35);">View Our Work</a>
       </div>
       <div class="about-img-wrap reveal delay-1">
         <img class="about-img"
-             src="https://picsum.photos/seed/voad-closing/800/600"
+             data-setting="contactClosingImage"
+             src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=800&q=80"
              alt="Completed VOAD interior project" loading="lazy"
              style="aspect-ratio:4/3;" />
       </div>
@@ -214,38 +216,44 @@
 
   <!-- ── FOOTER ─────────────────────────────────────────────── -->
   <footer>
-    <div class="footer-grid">
-      <div>
+    <div class="footer-top">
+      <div class="footer-brand">
         <span class="footer-logo-mark">V O A D</span>
         <span class="footer-logo-sub">Architecture &amp; Interiors</span>
-        <p class="footer-desc">A Rajkot-based studio specialising in residential, interior, heritage, and commercial design. Available for projects across India.</p>
+        <p class="footer-desc">A Rajkot-based architecture and interior design studio specialising in bespoke residences, luxury interiors, heritage designs, commercial spaces, and turnkey project delivery across Gujarat and India.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener" class="footer-social-link">Behance</a>
+        </div>
       </div>
-      <div>
-        <p class="footer-col-head">Navigate</p>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-head">Services</p>
-        <ul class="footer-links">
-          <li><a href="portfolio.html">Residential Architecture</a></li>
-          <li><a href="portfolio.html">Interior Design</a></li>
-          <li><a href="portfolio.html">Commercial Design</a></li>
-          <li><a href="portfolio.html">Heritage Restoration</a></li>
-          <li><a href="portfolio.html">Turnkey Solutions</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-head">Connect</p>
-        <div class="footer-contact">
-          <span style="color:rgba(248,247,244,.45);font-size:.78rem;">Rajkot, Gujarat, India</span>
-          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener">Behance</a>
-          <a href="contact.html">Get In Touch</a>
+      <div class="footer-cols">
+        <div>
+          <p class="footer-col-head">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-head">Services</p>
+          <ul class="footer-links">
+            <li><a href="portfolio.html?filter=residential">Residential Architecture</a></li>
+            <li><a href="portfolio.html?filter=interior">Interior Design</a></li>
+            <li><a href="portfolio.html?filter=commercial">Commercial Design</a></li>
+            <li><a href="portfolio.html?filter=heritage">Heritage Designs</a></li>
+            <li><a href="portfolio.html?filter=renovation">Renovation</a></li>
+            <li><a href="portfolio.html?filter=turnkey">Turnkey Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-head">Contact</p>
+          <div class="footer-contact">
+            <span class="footer-contact-item">Rajkot, Gujarat, India</span>
+            <a href="contact.html" class="footer-contact-item">Get In Touch</a>
+            <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener" class="footer-contact-item">@architect.vivekbosmiya</a>
+          </div>
         </div>
       </div>
     </div>
@@ -255,10 +263,11 @@
     </div>
   </footer>
 
-  <script src="js/config.js?v=3"></script>
-  <script src="js/data.js?v=3"></script>
-  <script src="js/render.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/config.js?v=4"></script>
+  <script src="js/data.js?v=4"></script>
+  <script src="js/render.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
+  <script src="js/settings.js?v=4"></script>
   <script>
     document.addEventListener('DOMContentLoaded', initContactForm);
   </script>

@@ -54,7 +54,8 @@
 
   <!-- ── HERO ── -->
   <section class="hero" aria-label="Hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=80');"></div>
+    <div class="hero-bg" data-setting="heroImage"
+         style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=80');"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Architecture &amp; Interior Design Studio — Rajkot, Gujarat</p>
@@ -144,6 +145,7 @@
     <div class="about-preview">
       <div class="about-img-wrap reveal">
         <img class="about-img"
+             data-setting="homeAboutImage"
              src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80"
              alt="Ar. Vivek Bosmiya — Principal Architect, VOAD Architecture & Interiors, Rajkot"
              loading="lazy" />
@@ -285,6 +287,7 @@
   <script src="js/data.js?v=4"></script>
   <script src="js/render.js?v=4"></script>
   <script src="js/main.js?v=4"></script>
+  <script src="js/settings.js?v=4"></script>
   <script>
     document.addEventListener('DOMContentLoaded', initHome);
   </script>
