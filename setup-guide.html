@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup Guide — VOAD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #F8F7F4; --text: #0D0D0D; --accent: #B85C38;
+      --muted: #6B6B6B; --border: #E8E5E0; --white: #fff;
+      --green: #2D7A4F; --font: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; }
+    a { color:var(--accent); }
+
+    .guide-header {
+      background:var(--text); color:var(--bg);
+      padding:3rem 4rem;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:1rem;
+    }
+    .guide-logo { font-size:1.4rem; font-weight:600; letter-spacing:.4em; }
+    .guide-logo span { display:block; font-size:.55rem; letter-spacing:.22em; color:rgba(248,247,244,.4); margin-top:3px; }
+    .guide-badge {
+      font-size:.65rem; letter-spacing:.18em; text-transform:uppercase;
+      background:var(--accent); color:#fff; padding:.4rem 1rem;
+    }
+
+    .guide-body { max-width:860px; margin:0 auto; padding:4rem 2rem 6rem; }
+
+    .guide-intro {
+      background:var(--white); border:1px solid var(--border);
+      padding:2rem 2.5rem; margin-bottom:3rem;
+    }
+    .guide-intro h1 { font-size:1.6rem; font-weight:300; margin-bottom:.5rem; }
+    .guide-intro p  { font-size:.9rem; color:var(--muted); line-height:1.8; }
+
+    /* Phase headers */
+    .phase {
+      display:flex; align-items:center; gap:1rem;
+      margin:3rem 0 1.5rem;
+    }
+    .phase-num {
+      width:36px; height:36px; border-radius:50%;
+      background:var(--accent); color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.75rem; font-weight:600; flex-shrink:0;
+    }
+    .phase h2 { font-size:1.1rem; font-weight:500; }
+
+    /* Steps */
+    .steps { display:flex; flex-direction:column; gap:1px; }
+    .step {
+      background:var(--white); border:1px solid var(--border);
+      padding:1.5rem 2rem;
+      display:grid; grid-template-columns:28px 1fr; gap:1rem; align-items:start;
+    }
+    .step-num {
+      font-size:.65rem; font-weight:600; letter-spacing:.1em;
+      color:var(--accent); padding-top:.15rem;
+    }
+    .step h3  { font-size:.92rem; font-weight:500; margin-bottom:.4rem; }
+    .step p   { font-size:.85rem; color:var(--muted); line-height:1.75; }
+    .step p + p { margin-top:.5rem; }
+
+    code, .code-block {
+      font-family:'Courier New', monospace;
+      background:#f0eeea; color:var(--text);
+      padding:.15rem .45rem; font-size:.82rem; border-radius:2px;
+    }
+    .code-block {
+      display:block; padding:1rem 1.25rem; margin:.75rem 0;
+      white-space:pre-wrap; line-height:1.65;
+      border-left:3px solid var(--accent);
+    }
+
+    /* Sheet column table */
+    .sheet-table {
+      width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.82rem;
+    }
+    .sheet-table th {
+      background:var(--text); color:var(--bg);
+      padding:.5rem .75rem; text-align:left;
+      font-weight:500; letter-spacing:.06em; font-size:.72rem;
+    }
+    .sheet-table td {
+      padding:.5rem .75rem; border-bottom:1px solid var(--border);
+      color:var(--muted); vertical-align:top;
+    }
+    .sheet-table tr:last-child td { border-bottom:none; }
+    .sheet-table .col-name { color:var(--text); font-weight:500; }
+
+    /* Tips */
+    .tip {
+      background:#fff8f5; border:1px solid #f5d5c8;
+      padding:1rem 1.25rem; margin:.75rem 0;
+      font-size:.83rem; color:var(--muted); line-height:1.75;
+    }
+    .tip strong { color:var(--accent); }
+
+    .success-box {
+      background:#f0faf5; border:1px solid #c2e8d4;
+      padding:1.25rem 1.5rem; margin-top:3rem;
+    }
+    .success-box h3 { color:var(--green); font-size:.95rem; margin-bottom:.5rem; }
+    .success-box p  { font-size:.85rem; color:var(--muted); line-height:1.75; }
+
+    /* CMS guide section */
+    .cms-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1px;
+      margin:.75rem 0;
+    }
+    .cms-card {
+      background:var(--white); border:1px solid var(--border);
+      padding:1.25rem 1.5rem;
+    }
+    .cms-card h4  { font-size:.85rem; font-weight:500; margin-bottom:.5rem; }
+    .cms-card p   { font-size:.8rem; color:var(--muted); line-height:1.7; }
+    .cms-card code { font-size:.75rem; }
+
+    @media (max-width:640px) {
+      .guide-header { padding:2rem 1.5rem; }
+      .guide-body   { padding:2rem 1rem 4rem; }
+      .cms-grid     { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="guide-header">
+  <div class="guide-logo">
+    V O A D
+    <span>Architecture &amp; Interiors</span>
+  </div>
+  <span class="guide-badge">Setup Guide</span>
+</header>
+
+<div class="guide-body">
+
+  <div class="guide-intro">
+    <h1>Three Things to Set Up</h1>
+    <p>This guide walks you through the three setup steps: creating your Google Sheet (your CMS), connecting it to the website, and uploading to GoDaddy. Once done, you add or remove projects simply by editing a spreadsheet — no code needed.</p>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PHASE A — GOOGLE SHEET                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="phase">
+    <div class="phase-num">A</div>
+    <h2>Create Your Google Sheet (the CMS)</h2>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <span class="step-num">1</span>
+      <div>
+        <h3>Create a new Google Sheet</h3>
+        <p>Go to <a href="https://sheets.google.com" target="_blank">sheets.google.com</a> and create a new blank spreadsheet. Name it <strong>VOAD Projects</strong>.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <div>
+        <h3>Set up the Projects sheet — paste these column headers in Row 1</h3>
+        <p>Click the tab at the bottom named <strong>Sheet1</strong> and rename it to <code>Projects</code>. Then paste these exact headers into row 1 (one per cell, A1 through P1):</p>
+        <code class="code-block">id	title	category	tagline	shortDesc	longDesc	year	location	area	scope	cover	gallery1	gallery2	gallery3	gallery4	featured</code>
+        <p>Each column explained:</p>
+        <table class="sheet-table">
+          <tr><th>Column</th><th>What to put here</th><th>Example</th></tr>
+          <tr><td class="col-name">id</td><td>Unique slug, no spaces</td><td>mehra-residence</td></tr>
+          <tr><td class="col-name">title</td><td>Project name</td><td>The Mehra Residence</td></tr>
+          <tr><td class="col-name">category</td><td>Must be one of these exactly: <code>residential</code> / <code>interior</code> / <code>heritage-commercial</code></td><td>residential</td></tr>
+          <tr><td class="col-name">tagline</td><td>One-line subtitle shown on the detail page</td><td>A family home built around light</td></tr>
+          <tr><td class="col-name">shortDesc</td><td>2 sentence summary shown on cards</td><td>A 4,200 sq ft bungalow…</td></tr>
+          <tr><td class="col-name">longDesc</td><td>Full description for the project detail page. Use blank lines to separate paragraphs.</td><td>The brief was…</td></tr>
+          <tr><td class="col-name">year</td><td>Completion year</td><td>2024</td></tr>
+          <tr><td class="col-name">location</td><td>City, State</td><td>Rajkot, Gujarat</td></tr>
+          <tr><td class="col-name">area</td><td>Floor area (optional)</td><td>4,200 sq ft</td></tr>
+          <tr><td class="col-name">scope</td><td>Services delivered</td><td>Architecture · Interior Design · Turnkey</td></tr>
+          <tr><td class="col-name">cover</td><td>Full URL of the cover/hero image</td><td>https://…</td></tr>
+          <tr><td class="col-name">gallery1–4</td><td>Full URLs of up to 4 gallery images</td><td>https://…</td></tr>
+          <tr><td class="col-name">featured</td><td>Show on homepage? Type <code>true</code> or <code>false</code></td><td>true</td></tr>
+        </table>
+        <div class="tip"><strong>Tip:</strong> Add one row per project. The website reads every row automatically. To add a project — add a row. To delete — delete the row. To update — edit the cell.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span>
+      <div>
+        <h3>Where to host your project photos</h3>
+        <p>Upload your real project photos to Google Drive. Right-click each photo → <strong>Share</strong> → <strong>Anyone with the link can view</strong>. Then copy the sharing URL and use it in the <code>cover</code> / <code>gallery1</code>–<code>gallery4</code> columns.</p>
+        <div class="tip"><strong>Better option:</strong> Upload images directly to GoDaddy inside a folder called <code>images/projects/</code> and use relative URLs like <code>images/projects/mehra-residence-01.jpg</code>. This is faster and more reliable than Google Drive links.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PHASE B — APPS SCRIPT                                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="phase">
+    <div class="phase-num">B</div>
+    <h2>Connect the Sheet to Your Website</h2>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <span class="step-num">4</span>
+      <div>
+        <h3>Open the Apps Script editor</h3>
+        <p>In your Google Sheet, click <strong>Extensions → Apps Script</strong>. A new tab opens with a code editor.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">5</span>
+      <div>
+        <h3>Paste the script code</h3>
+        <p>Delete everything already in the editor. Open the file <code>google-apps-script.js</code> from your website folder, copy its entire contents, and paste it into the Apps Script editor. Click <strong>Save</strong> (disk icon).</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">6</span>
+      <div>
+        <h3>Deploy as a Web App</h3>
+        <p>Click <strong>Deploy → New Deployment</strong>. Configure it exactly like this:</p>
+        <code class="code-block">Type:              Web App
+Description:       VOAD CMS
+Execute as:        Me (your Google account)
+Who has access:    Anyone</code>
+        <p>Click <strong>Deploy</strong>. Google will ask you to authorise — click through and allow. You will see a URL ending in <code>/exec</code>. <strong>Copy that URL.</strong></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">7</span>
+      <div>
+        <h3>Paste the URL into config.js</h3>
+        <p>Open <code>js/config.js</code> in your website folder. It looks like this:</p>
+        <code class="code-block">const VOAD_CONFIG = {
+  appsScriptUrl: '',        // ← paste your URL here
+  liveFromSheets: false     // ← change to true
+};</code>
+        <p>Paste the <code>/exec</code> URL between the quotes. Then change <code>false</code> to <code>true</code>. Save the file. The website will now load projects directly from your Google Sheet.</p>
+        <div class="tip"><strong>Test it first:</strong> Before uploading to GoDaddy, open <code>index.html</code> in your browser. Your real project data should appear within a second or two. If it doesn't, double-check the URL and that "Who has access" is set to <strong>Anyone</strong>.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">8</span>
+      <div>
+        <h3>Test the contact form</h3>
+        <p>Fill in the contact form on <code>contact.html</code> and submit it. Wait 10 seconds, then check your Google Sheet — a new tab named <strong>Contact</strong> should appear automatically with your test submission.</p>
+        <div class="tip"><strong>Note:</strong> Because the form uses a privacy-safe "no-cors" request, the browser can't confirm receipt — but the data is always written. The "Thank you" message shows immediately after submission.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PHASE C — GODADDY DEPLOYMENT                            -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="phase">
+    <div class="phase-num">C</div>
+    <h2>Deploy to GoDaddy</h2>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <span class="step-num">9</span>
+      <div>
+        <h3>Log in to GoDaddy cPanel</h3>
+        <p>Go to your GoDaddy account → <strong>My Products → Hosting → Manage</strong>. Click <strong>cPanel Admin</strong> to open the hosting control panel.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">10</span>
+      <div>
+        <h3>Open File Manager</h3>
+        <p>In cPanel, find and click <strong>File Manager</strong>. Navigate to the <code>public_html</code> folder — this is the root of your website. Everything you upload here will be live at your domain.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">11</span>
+      <div>
+        <h3>Upload your files</h3>
+        <p>Select all files and folders from your <code>voad-website</code> folder on your computer:</p>
+        <code class="code-block">index.html
+portfolio.html
+about.html
+contact.html
+project.html
+setup-guide.html       ← optional, can delete after setup
+google-apps-script.js  ← optional, can delete after setup
+css/
+js/</code>
+        <p>In File Manager, click <strong>Upload</strong> and drag these in. Make sure the folder structure is preserved — <code>css/</code> and <code>js/</code> must remain as subfolders.</p>
+        <div class="tip"><strong>Tip:</strong> You can also use FTP (FileZilla) for faster bulk uploads. GoDaddy provides FTP credentials under cPanel → FTP Accounts.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">12</span>
+      <div>
+        <h3>Visit your domain</h3>
+        <p>Open your domain in a browser. The VOAD website should load. All navigation, project pages, filter, and contact form should work immediately. If images are missing, check that your image URLs are correct.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ONGOING: MANAGING PROJECTS                              -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="phase">
+    <div class="phase-num">✓</div>
+    <h2>Day-to-Day: Adding &amp; Removing Projects</h2>
+  </div>
+
+  <div class="cms-grid">
+    <div class="cms-card">
+      <h4>Add a new project</h4>
+      <p>Open your Google Sheet → <strong>Projects</strong> tab. Add a new row at the bottom with all the columns filled in. The project appears on your website within seconds — no upload needed.</p>
+    </div>
+    <div class="cms-card">
+      <h4>Remove a project</h4>
+      <p>In the <strong>Projects</strong> sheet, right-click the row and select <strong>Delete row</strong>. It disappears from the website immediately.</p>
+    </div>
+    <div class="cms-card">
+      <h4>Edit a project</h4>
+      <p>Find the row in the <strong>Projects</strong> sheet and edit any cell. Changes are live as soon as you save the sheet.</p>
+    </div>
+    <div class="cms-card">
+      <h4>Change featured projects</h4>
+      <p>The homepage shows the first project per category where <code>featured</code> = <code>true</code>. Change a project's <code>featured</code> column to swap what shows on the homepage.</p>
+    </div>
+    <div class="cms-card">
+      <h4>View contact submissions</h4>
+      <p>Every form submission is saved to the <strong>Contact</strong> tab in your Google Sheet automatically. You can also get email notifications by going to <strong>Tools → Notification rules</strong> in Sheets.</p>
+    </div>
+    <div class="cms-card">
+      <h4>Swap placeholder images</h4>
+      <p>Upload real project photos to your GoDaddy <code>images/projects/</code> folder, then update the <code>cover</code> and <code>gallery1</code>–<code>gallery4</code> columns in the Sheet with the new URLs.</p>
+    </div>
+  </div>
+
+  <div class="success-box">
+    <h3>You're all set.</h3>
+    <p>Your website is a fully working CMS-driven portfolio. Projects are managed from Google Sheets, contact submissions go directly to your Drive, and the whole thing runs on GoDaddy static hosting with no monthly CMS fees. When you're ready to swap placeholder images for real project photos, simply update the image URLs in the Sheet.</p>
+  </div>
+
+</div>
+</body>
+</html>

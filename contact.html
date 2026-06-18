@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — VOAD Architecture & Interiors</title>
+  <meta name="description" content="Get in touch with VOAD Architecture & Interiors. Based in Rajkot, Gujarat — available for projects across India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <style>
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 4rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+    .form-field { display: flex; flex-direction: column; gap: .5rem; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label {
+      font-size: .62rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: var(--font);
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--text);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: .8rem 0;
+      outline: none;
+      width: 100%;
+      transition: border-color .3s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-field select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 4.5L11 1' stroke='%236B6B6B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
+      padding-right: 1.5rem;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-bottom-color: var(--accent); }
+    .form-field textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
+    .form-submit { grid-column: 1 / -1; margin-top: .5rem; }
+    @media (max-width: 768px) {
+      .contact-form { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── LOADER ──────────────────────────────────────────── -->
+  <div class="loader">
+    <span class="loader-logo">V O A D</span>
+    <span class="loader-logo-sub">Architecture &amp; Interiors</span>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    <span class="loader-pct">0%</span>
+  </div>
+
+  <!-- ── MOBILE NAV ──────────────────────────────────────── -->
+  <div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="mobile-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- ── NAVIGATION ──────────────────────────────────────── -->
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="VOAD Home">
+      <span class="nav-logo-mark">V O A D</span>
+      <span class="nav-logo-sub">Architecture &amp; Interiors</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── PAGE HERO ───────────────────────────────────────── -->
+  <header class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://picsum.photos/seed/voad-contact/1800/900');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <h1>Get In Touch</h1>
+      <p>Tell us about your project — we'd love to hear from you</p>
+    </div>
+  </header>
+
+  <!-- ── CONTACT MAIN ─────────────────────────────────────── -->
+  <section class="section section-white">
+    <div style="max-width:860px;">
+      <p class="section-label reveal">Contact VOAD</p>
+      <h2 class="contact-cta-heading reveal delay-1">Ready to Transform<br>Your Space?</h2>
+      <p class="contact-sub reveal delay-2">Share your project details and we'll discuss how to create a space that elevates your lifestyle or business. Based in Rajkot, Gujarat — available for projects across India.</p>
+
+      <!-- Contact info blocks -->
+      <div class="contact-info-grid reveal delay-3">
+        <div>
+          <p class="cinfo-label">Location</p>
+          <p class="cinfo-value">
+            Rajkot, Gujarat, India<br>
+            <span style="font-size:.78rem;">Available for projects across India</span>
+          </p>
+        </div>
+        <div>
+          <p class="cinfo-label">Follow Our Work</p>
+          <p class="cinfo-value">
+            <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener">@architect.vivekbosmiya</a><br>
+            <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener">behance.net/vivekbosmiya</a>
+          </p>
+        </div>
+        <div>
+          <p class="cinfo-label">Studio Hours</p>
+          <p class="cinfo-value">
+            Monday – Saturday<br>10:00 am – 7:00 pm IST
+          </p>
+        </div>
+      </div>
+
+      <!-- Enquiry form — id used by render.js for submission -->
+      <form id="contact-form" class="contact-form" novalidate>
+
+        <div class="form-field reveal">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="Rahul Sharma" required />
+        </div>
+
+        <div class="form-field reveal delay-1">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="hello@example.com" required />
+        </div>
+
+        <div class="form-field reveal">
+          <label for="phone">Phone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+        </div>
+
+        <div class="form-field reveal delay-1">
+          <label for="project-type">Project Type</label>
+          <select id="project-type" name="project-type">
+            <option value="" disabled selected>Select a service</option>
+            <option>Residential Architecture</option>
+            <option>Interior Design</option>
+            <option>Commercial &amp; Office Design</option>
+            <option>Haveli &amp; Heritage Restoration</option>
+            <option>Renovation &amp; Remodelling</option>
+            <option>Turnkey Solutions</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+
+        <div class="form-field full reveal">
+          <label for="location">Project Location</label>
+          <input type="text" id="location" name="location" placeholder="City, State" />
+        </div>
+
+        <div class="form-field full reveal delay-1">
+          <label for="message">Tell Us About Your Project *</label>
+          <textarea id="message" name="message" placeholder="Brief description — space size, timeline, budget range, or anything else you'd like us to know…" required></textarea>
+        </div>
+
+        <div class="form-submit reveal delay-2">
+          <button type="submit" class="contact-btn">Send Message &#8594;</button>
+          <p id="form-status"></p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ── CLOSING STATEMENT ────────────────────────────────── -->
+  <section class="section section-dark" style="padding:6rem 4rem;">
+    <div class="about-preview" style="gap:5rem;">
+      <div>
+        <p class="section-label reveal" style="color:var(--accent);">Our Promise</p>
+        <h2 class="section-heading reveal delay-1" style="color:var(--bg);">
+          One Studio.<br>Your Vision.<br>Complete Delivery.
+        </h2>
+        <p class="section-body reveal delay-2" style="color:rgba(248,247,244,.5);max-width:100%;">
+          From the first sketch to the day you walk through the door, VOAD is with you at every stage — concept, design development, contractor coordination, procurement, and final handover.
+        </p>
+        <a href="portfolio.html" class="about-cta reveal delay-3"
+           style="color:var(--bg);border-color:rgba(248,247,244,.35);">View Our Work</a>
+      </div>
+      <div class="about-img-wrap reveal delay-1">
+        <img class="about-img"
+             src="https://picsum.photos/seed/voad-closing/800/600"
+             alt="Completed VOAD interior project" loading="lazy"
+             style="aspect-ratio:4/3;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo-mark">V O A D</span>
+        <span class="footer-logo-sub">Architecture &amp; Interiors</span>
+        <p class="footer-desc">A Rajkot-based studio specialising in residential, interior, heritage, and commercial design. Available for projects across India.</p>
+      </div>
+      <div>
+        <p class="footer-col-head">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Services</p>
+        <ul class="footer-links">
+          <li><a href="portfolio.html">Residential Architecture</a></li>
+          <li><a href="portfolio.html">Interior Design</a></li>
+          <li><a href="portfolio.html">Commercial Design</a></li>
+          <li><a href="portfolio.html">Heritage Restoration</a></li>
+          <li><a href="portfolio.html">Turnkey Solutions</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Connect</p>
+        <div class="footer-contact">
+          <span style="color:rgba(248,247,244,.45);font-size:.78rem;">Rajkot, Gujarat, India</span>
+          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener">Behance</a>
+          <a href="contact.html">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 VOAD Architecture &amp; Interiors. All rights reserved.</span>
+      <span>Rajkot, Gujarat &nbsp;·&nbsp; Available across India</span>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initContactForm);
+  </script>
+</body>
+</html>

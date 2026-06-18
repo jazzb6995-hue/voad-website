@@ -1,0 +1,389 @@
+/* ============================================================
+   VOAD — Project Data  (1 cover + 10 gallery images each)
+   Replace picsum URLs with real project photos when ready.
+   ============================================================ */
+
+const PROJECTS = [
+
+  /* ── RESIDENTIAL ─────────────────────────────────────────── */
+
+  {
+    id: 'mehra-residence',
+    title: 'The Mehra Residence',
+    category: 'residential',
+    tagline: 'A family home built around light and open living',
+    shortDesc: 'A 4,200 sq ft family bungalow in central Rajkot, designed around generous open-plan spaces and natural light at every hour of the day.',
+    longDesc: 'The brief for the Mehra Residence was deceptively simple: a home that feels open yet private, contemporary yet warm. Working within a compact urban plot, we oriented the living volumes to capture morning light in the kitchen and dining areas, and softer afternoon light in the main lounge.\n\nThe material palette — off-white plaster, raw concrete accents, warm teak joinery, and hand-laid stone flooring — was chosen to age well and feel grounded in the Gujarat climate. Every threshold was designed as a moment of deliberate pause.\n\nThe project was delivered as a full turnkey commission, with VOAD handling architecture, interior design, furniture specification, and contractor coordination through to handover.',
+    year: '2024', location: 'Rajkot, Gujarat', area: '4,200 sq ft',
+    scope: 'Architecture · Interior Design · Turnkey',
+    cover: 'https://picsum.photos/seed/mehra-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/mehra-g01/900/675',
+      'https://picsum.photos/seed/mehra-g02/900/675',
+      'https://picsum.photos/seed/mehra-g03/900/675',
+      'https://picsum.photos/seed/mehra-g04/900/675',
+      'https://picsum.photos/seed/mehra-g05/900/675',
+      'https://picsum.photos/seed/mehra-g06/900/675',
+      'https://picsum.photos/seed/mehra-g07/900/675',
+      'https://picsum.photos/seed/mehra-g08/900/675',
+      'https://picsum.photos/seed/mehra-g09/900/675',
+      'https://picsum.photos/seed/mehra-g10/900/675'
+    ],
+    featured: true
+  },
+
+  {
+    id: 'patel-villa',
+    title: 'Patel Villa',
+    category: 'residential',
+    tagline: 'A luxury villa where scale meets intimacy',
+    shortDesc: 'A 6,800 sq ft villa on the outskirts of Rajkot, balancing the demands of a large family home with the warmth of a personal sanctuary.',
+    longDesc: 'Patel Villa sits on a generous plot with unobstructed views to the north. The design challenge was scale — the clients wanted a home large enough for an extended family, yet one that never felt institutional or cold.\n\nWe resolved this through a series of interconnected courtyards that break the massing into smaller, human-scale volumes. Each courtyard brings light and ventilation deep into the plan.\n\nThe interiors carry a restrained luxury: Belgian limestone floors, custom cabinetry in satin-finished walnut, and a muted palette of sand, ivory, and deep charcoal.',
+    year: '2023', location: 'Rajkot, Gujarat', area: '6,800 sq ft',
+    scope: 'Architecture · Landscape · Interior Design',
+    cover: 'https://picsum.photos/seed/patel-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/patel-g01/900/675',
+      'https://picsum.photos/seed/patel-g02/900/675',
+      'https://picsum.photos/seed/patel-g03/900/675',
+      'https://picsum.photos/seed/patel-g04/900/675',
+      'https://picsum.photos/seed/patel-g05/900/675',
+      'https://picsum.photos/seed/patel-g06/900/675',
+      'https://picsum.photos/seed/patel-g07/900/675',
+      'https://picsum.photos/seed/patel-g08/900/675',
+      'https://picsum.photos/seed/patel-g09/900/675',
+      'https://picsum.photos/seed/patel-g10/900/675'
+    ],
+    featured: true
+  },
+
+  {
+    id: 'soni-farmhouse',
+    title: 'Soni Farmhouse',
+    category: 'residential',
+    tagline: 'A rural retreat grounded in local craft and landscape',
+    shortDesc: 'A 5,100 sq ft farmhouse on the edge of Gondal, designed to sit lightly on its land and draw from the vernacular traditions of Saurashtra.',
+    longDesc: 'The Soni Farmhouse was conceived as a counterpoint to urban living — unhurried, rooted, and connected to the rhythms of its landscape. The clients wanted a weekend retreat that their family could genuinely use.\n\nWe drew from the stepped-roof typologies of Saurashtra farmhouses, adapting the geometry for contemporary living while retaining a genuine connection to local tradition. Locally sourced sandstone, handmade clay tiles, and lime plaster walls give the house a texture that only improves with age.\n\nThe interiors are deliberately spare — whitewashed walls, cane furniture, cotton textiles, and terracotta accents.',
+    year: '2023', location: 'Gondal, Gujarat', area: '5,100 sq ft',
+    scope: 'Architecture · Interior Design',
+    cover: 'https://picsum.photos/seed/soni-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/soni-g01/900/675',
+      'https://picsum.photos/seed/soni-g02/900/675',
+      'https://picsum.photos/seed/soni-g03/900/675',
+      'https://picsum.photos/seed/soni-g04/900/675',
+      'https://picsum.photos/seed/soni-g05/900/675',
+      'https://picsum.photos/seed/soni-g06/900/675',
+      'https://picsum.photos/seed/soni-g07/900/675',
+      'https://picsum.photos/seed/soni-g08/900/675',
+      'https://picsum.photos/seed/soni-g09/900/675',
+      'https://picsum.photos/seed/soni-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'bhatt-bungalow',
+    title: 'The Bhatt Bungalow',
+    category: 'residential',
+    tagline: 'A compact city bungalow that punches well above its size',
+    shortDesc: 'A 2,900 sq ft single-family bungalow in a dense residential pocket of Rajkot — proof that modest footprints and generous living are not mutually exclusive.',
+    longDesc: 'Space in central Rajkot is precious, and the Bhatt family\'s plot was no exception. Our task was to deliver a four-bedroom home that felt spacious and still managed a quiet relationship with the street.\n\nThe solution centred on a double-height entrance volume that makes the home feel immediately larger than its footprint suggests. A narrow light-well running the full height of the building brings daylight to the centre of the plan on every floor.\n\nThe colour palette is warm and cohesive — terracotta floor tiles, mango-yellow accent walls in the children\'s rooms, and a deep forest green kitchen that anchors the ground floor.',
+    year: '2022', location: 'Rajkot, Gujarat', area: '2,900 sq ft',
+    scope: 'Architecture · Turnkey',
+    cover: 'https://picsum.photos/seed/bhatt-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/bhatt-g01/900/675',
+      'https://picsum.photos/seed/bhatt-g02/900/675',
+      'https://picsum.photos/seed/bhatt-g03/900/675',
+      'https://picsum.photos/seed/bhatt-g04/900/675',
+      'https://picsum.photos/seed/bhatt-g05/900/675',
+      'https://picsum.photos/seed/bhatt-g06/900/675',
+      'https://picsum.photos/seed/bhatt-g07/900/675',
+      'https://picsum.photos/seed/bhatt-g08/900/675',
+      'https://picsum.photos/seed/bhatt-g09/900/675',
+      'https://picsum.photos/seed/bhatt-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'kapoor-estate',
+    title: 'Kapoor Estate',
+    category: 'residential',
+    tagline: 'An estate-scale residence for multi-generational living',
+    shortDesc: 'An 8,400 sq ft estate in Jamnagar housing three generations under one roof — designed for privacy, togetherness, and longevity.',
+    longDesc: 'The Kapoor Estate is one of our most complex residential commissions to date. The brief called for a home that could accommodate three generations with genuine privacy between each household, while feeling unified as a single family estate.\n\nThe design organises the programme as three interconnected wings around a central garden courtyard. Each wing has its own entrance and can function independently, but the courtyard is shared.\n\nThe architecture is restrained and dignified: off-form concrete, teak brise-soleil screens, and a planted roof that helps manage heat gain.',
+    year: '2024', location: 'Jamnagar, Gujarat', area: '8,400 sq ft',
+    scope: 'Architecture · Interior Design · Landscape',
+    cover: 'https://picsum.photos/seed/kapoor-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/kapoor-g01/900/675',
+      'https://picsum.photos/seed/kapoor-g02/900/675',
+      'https://picsum.photos/seed/kapoor-g03/900/675',
+      'https://picsum.photos/seed/kapoor-g04/900/675',
+      'https://picsum.photos/seed/kapoor-g05/900/675',
+      'https://picsum.photos/seed/kapoor-g06/900/675',
+      'https://picsum.photos/seed/kapoor-g07/900/675',
+      'https://picsum.photos/seed/kapoor-g08/900/675',
+      'https://picsum.photos/seed/kapoor-g09/900/675',
+      'https://picsum.photos/seed/kapoor-g10/900/675'
+    ],
+    featured: false
+  },
+
+  /* ── INTERIOR DESIGN ──────────────────────────────────────── */
+
+  {
+    id: 'sharma-living',
+    title: 'The Sharma Living',
+    category: 'interior',
+    tagline: 'A complete apartment renovation built around how the family lives',
+    shortDesc: 'A 1,800 sq ft apartment interior in Rajkot, stripped back and rebuilt around the daily patterns of a young family — open, calm, and deeply considered.',
+    longDesc: 'The Sharma family had lived in their apartment for six years before they called us. They loved the location but felt constrained by a layout that had never quite worked. Our first step was to understand how they actually used the space.\n\nThis research led to significant changes: opening the kitchen to the living area entirely, relocating a partition wall to create a proper study alcove, and redesigning the children\'s bedroom as a room that grows with them.\n\nThe material palette is deliberately calm — limewashed walls, pale oak flooring, linen soft furnishings — with moments of warmth introduced through hand-thrown ceramics and vintage brass lamps.',
+    year: '2024', location: 'Rajkot, Gujarat', area: '1,800 sq ft',
+    scope: 'Interior Design · Furniture Sourcing · Renovation',
+    cover: 'https://picsum.photos/seed/sharma-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/sharma-g01/900/675',
+      'https://picsum.photos/seed/sharma-g02/900/675',
+      'https://picsum.photos/seed/sharma-g03/900/675',
+      'https://picsum.photos/seed/sharma-g04/900/675',
+      'https://picsum.photos/seed/sharma-g05/900/675',
+      'https://picsum.photos/seed/sharma-g06/900/675',
+      'https://picsum.photos/seed/sharma-g07/900/675',
+      'https://picsum.photos/seed/sharma-g08/900/675',
+      'https://picsum.photos/seed/sharma-g09/900/675',
+      'https://picsum.photos/seed/sharma-g10/900/675'
+    ],
+    featured: true
+  },
+
+  {
+    id: 'suite-twelve',
+    title: 'Suite Twelve',
+    category: 'interior',
+    tagline: 'A hotel suite designed for genuine rest and quiet luxury',
+    shortDesc: 'A 640 sq ft boutique hotel suite in Rajkot, conceived as a sanctuary where every detail is calibrated for calm.',
+    longDesc: 'Suite Twelve is part of a boutique property in central Rajkot. The brief was to create a room that felt genuinely luxurious — not in an ostentatious way, but in the way that a beautifully made room makes you feel cared for from the moment you arrive.\n\nEvery decision was made in service of the guest experience. The bedroom is oriented to avoid morning street noise. The bathroom has a deep soaking bath positioned to face a frosted-glass panel that admits soft, diffused light.\n\nThe colour palette moves from warm ivory in the sleeping area to a deeper palette of slate and brass in the bathroom — a quiet transition from rest to ritual.',
+    year: '2023', location: 'Rajkot, Gujarat', area: '640 sq ft',
+    scope: 'Interior Design · Turnkey',
+    cover: 'https://picsum.photos/seed/suite-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/suite-g01/900/675',
+      'https://picsum.photos/seed/suite-g02/900/675',
+      'https://picsum.photos/seed/suite-g03/900/675',
+      'https://picsum.photos/seed/suite-g04/900/675',
+      'https://picsum.photos/seed/suite-g05/900/675',
+      'https://picsum.photos/seed/suite-g06/900/675',
+      'https://picsum.photos/seed/suite-g07/900/675',
+      'https://picsum.photos/seed/suite-g08/900/675',
+      'https://picsum.photos/seed/suite-g09/900/675',
+      'https://picsum.photos/seed/suite-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'desai-kitchen',
+    title: 'Desai Kitchen Studio',
+    category: 'interior',
+    tagline: 'A kitchen redesigned as the true heart of the home',
+    shortDesc: 'A 380 sq ft kitchen renovation in Surat, transformed from an enclosed utility room into a social hub where cooking becomes a shared pleasure.',
+    longDesc: 'The Desai kitchen was a closed, compartmentalised room the family avoided. Opening the kitchen to the dining space was the obvious move, but the execution had to be precise — the family are serious cooks, and function could not be sacrificed for openness.\n\nThe solution was a structural beam that replaces the dividing wall, paired with a deep island that provides prep space on the kitchen side and a breakfast bar on the dining side.\n\nCabinets in a deep muted green sit against white walls and a pale grey terrazzo floor. Unlacquered brass handles and a hand-made zellige tile splashback add warmth and tactility.',
+    year: '2024', location: 'Surat, Gujarat', area: '380 sq ft',
+    scope: 'Interior Design · Structural Coordination',
+    cover: 'https://picsum.photos/seed/desai-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/desai-g01/900/675',
+      'https://picsum.photos/seed/desai-g02/900/675',
+      'https://picsum.photos/seed/desai-g03/900/675',
+      'https://picsum.photos/seed/desai-g04/900/675',
+      'https://picsum.photos/seed/desai-g05/900/675',
+      'https://picsum.photos/seed/desai-g06/900/675',
+      'https://picsum.photos/seed/desai-g07/900/675',
+      'https://picsum.photos/seed/desai-g08/900/675',
+      'https://picsum.photos/seed/desai-g09/900/675',
+      'https://picsum.photos/seed/desai-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'the-loft',
+    title: 'The Loft',
+    category: 'interior',
+    tagline: 'A penthouse interior that earns its views',
+    shortDesc: 'A 2,200 sq ft penthouse interior in Ahmedabad, designed to live up to its 180-degree city views.',
+    longDesc: 'The Loft came with extraordinary natural assets: double-height ceilings, generous windows on three sides, and one of the better views of Ahmedabad\'s skyline. The interior design challenge was to enhance these qualities without overworking them.\n\nWe kept the palette deliberately restrained — raw plaster, polished concrete, natural linen — so that the views remain the dominant feature. A mezzanine study was introduced under the highest point of the ceiling, reached by a floating staircase in blackened steel.\n\nFurniture was selected and in some cases custom-made: generous sofas, a ten-seat dining table in solid oak, and a built-in library wall that runs the full length of the living room.',
+    year: '2023', location: 'Ahmedabad, Gujarat', area: '2,200 sq ft',
+    scope: 'Interior Design · Furniture Curation · Custom Joinery',
+    cover: 'https://picsum.photos/seed/loft-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/loft-g01/900/675',
+      'https://picsum.photos/seed/loft-g02/900/675',
+      'https://picsum.photos/seed/loft-g03/900/675',
+      'https://picsum.photos/seed/loft-g04/900/675',
+      'https://picsum.photos/seed/loft-g05/900/675',
+      'https://picsum.photos/seed/loft-g06/900/675',
+      'https://picsum.photos/seed/loft-g07/900/675',
+      'https://picsum.photos/seed/loft-g08/900/675',
+      'https://picsum.photos/seed/loft-g09/900/675',
+      'https://picsum.photos/seed/loft-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'mehta-suite',
+    title: 'Mehta Master Suite',
+    category: 'interior',
+    tagline: 'A bedroom redesigned as a complete personal retreat',
+    shortDesc: 'A 520 sq ft master suite in Rajkot — bedroom, dressing room, and bathroom resolved into a single cohesive sequence for genuine rest.',
+    longDesc: 'The Mehta master suite is the result of a conversation that most people never have about their bedroom: what do you actually need here? We redesigned the 520 sq ft as a suite of three connected spaces — sleeping area, dressing room, and bathroom — each with a distinct character but a shared material language.\n\nThe bedroom is an exercise in restraint: a platform bed in pale ash, built-in bedside niches, blackout linen curtains that seal the room completely.\n\nThe bathroom closes the sequence: a wet room in fluted stone, an oval freestanding bath, and a rain shower behind a full-height glass panel.',
+    year: '2022', location: 'Rajkot, Gujarat', area: '520 sq ft',
+    scope: 'Interior Design · Custom Joinery',
+    cover: 'https://picsum.photos/seed/mehta-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/mehta-g01/900/675',
+      'https://picsum.photos/seed/mehta-g02/900/675',
+      'https://picsum.photos/seed/mehta-g03/900/675',
+      'https://picsum.photos/seed/mehta-g04/900/675',
+      'https://picsum.photos/seed/mehta-g05/900/675',
+      'https://picsum.photos/seed/mehta-g06/900/675',
+      'https://picsum.photos/seed/mehta-g07/900/675',
+      'https://picsum.photos/seed/mehta-g08/900/675',
+      'https://picsum.photos/seed/mehta-g09/900/675',
+      'https://picsum.photos/seed/mehta-g10/900/675'
+    ],
+    featured: false
+  },
+
+  /* ── HERITAGE & COMMERCIAL ────────────────────────────────── */
+
+  {
+    id: 'ranchhodji-haveli',
+    title: 'Ranchhodji Haveli',
+    category: 'heritage-commercial',
+    tagline: 'A 150-year-old haveli restored and returned to life',
+    shortDesc: 'A 7,200 sq ft heritage haveli in Rajkot — sensitively restored over 18 months, preserving original lime plasterwork, carved timber, and painted ceilings.',
+    longDesc: 'The Ranchhodji Haveli is one of the finest surviving examples of late 19th-century domestic architecture in central Rajkot. When the family approached VOAD, the building had been largely unmaintained for decades — structurally sound, but with significant damage to its extraordinary decorative programme.\n\nOur approach was one of careful investigation before intervention. We spent three months documenting the building in detail before developing a restoration strategy. The guiding principle was reversibility: wherever possible, new work was designed to be distinguishable from original fabric while complementing it.\n\nThe restored haveli now serves as the family\'s primary residence. Underfloor heating, concealed LED lighting, and modern plumbing have been integrated without visible intrusion.',
+    year: '2023', location: 'Rajkot, Gujarat', area: '7,200 sq ft',
+    scope: 'Heritage Restoration · Conservation · Adaptive Reuse',
+    cover: 'https://picsum.photos/seed/ranchhodji-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/ranchhodji-g01/900/675',
+      'https://picsum.photos/seed/ranchhodji-g02/900/675',
+      'https://picsum.photos/seed/ranchhodji-g03/900/675',
+      'https://picsum.photos/seed/ranchhodji-g04/900/675',
+      'https://picsum.photos/seed/ranchhodji-g05/900/675',
+      'https://picsum.photos/seed/ranchhodji-g06/900/675',
+      'https://picsum.photos/seed/ranchhodji-g07/900/675',
+      'https://picsum.photos/seed/ranchhodji-g08/900/675',
+      'https://picsum.photos/seed/ranchhodji-g09/900/675',
+      'https://picsum.photos/seed/ranchhodji-g10/900/675'
+    ],
+    featured: true
+  },
+
+  {
+    id: 'meridian-office',
+    title: 'Meridian Corporate Park',
+    category: 'heritage-commercial',
+    tagline: 'A workplace that changed how a team works',
+    shortDesc: 'A 4,500 sq ft commercial office in Rajkot, redesigned from a conventional cellular layout into a workplace that actively supports focus and collaboration.',
+    longDesc: 'Meridian\'s previous office was typical of its era: rows of workstations under uniform fluorescent lighting and a staff kitchen nobody used. The company had grown; the office had not.\n\nOur brief was to create an environment where the team actually wanted to work. We started with a workplace strategy exercise, mapping how different teams worked and what they needed.\n\nThe resulting design provides three distinct zones: focused work, collaborative work, and social/wellbeing. The social zone — a generous kitchen-lounge hybrid — has become the company\'s unofficial meeting room, used far more than the formal boardroom.',
+    year: '2022', location: 'Rajkot, Gujarat', area: '4,500 sq ft',
+    scope: 'Commercial Design · Interior Design · Turnkey',
+    cover: 'https://picsum.photos/seed/meridian-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/meridian-g01/900/675',
+      'https://picsum.photos/seed/meridian-g02/900/675',
+      'https://picsum.photos/seed/meridian-g03/900/675',
+      'https://picsum.photos/seed/meridian-g04/900/675',
+      'https://picsum.photos/seed/meridian-g05/900/675',
+      'https://picsum.photos/seed/meridian-g06/900/675',
+      'https://picsum.photos/seed/meridian-g07/900/675',
+      'https://picsum.photos/seed/meridian-g08/900/675',
+      'https://picsum.photos/seed/meridian-g09/900/675',
+      'https://picsum.photos/seed/meridian-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'amber-showroom',
+    title: 'The Amber Showroom',
+    category: 'heritage-commercial',
+    tagline: 'A retail environment where products sell themselves',
+    shortDesc: 'A 2,100 sq ft luxury tile and stone showroom in Rajkot — designed to showcase products at their best and convert visitors into clients.',
+    longDesc: 'Showroom design is an exercise in commercial psychology as much as aesthetics. For The Amber Showroom, we began by understanding the customer journey — from arrival and orientation to product discovery and consultation.\n\nThe space is organised along a clear circulation spine. Individual product zones are lit at close to the colour temperature of residential interiors, so clients can accurately judge how a material will look at home.\n\nThe brand identity — rich ambers, deep navies, and unlacquered brass — is expressed through furniture selection, joinery finishes, and a suite of bespoke display plinths designed to complement rather than compete with the products on show.',
+    year: '2024', location: 'Rajkot, Gujarat', area: '2,100 sq ft',
+    scope: 'Commercial Design · Brand Integration · Lighting Design',
+    cover: 'https://picsum.photos/seed/amber-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/amber-g01/900/675',
+      'https://picsum.photos/seed/amber-g02/900/675',
+      'https://picsum.photos/seed/amber-g03/900/675',
+      'https://picsum.photos/seed/amber-g04/900/675',
+      'https://picsum.photos/seed/amber-g05/900/675',
+      'https://picsum.photos/seed/amber-g06/900/675',
+      'https://picsum.photos/seed/amber-g07/900/675',
+      'https://picsum.photos/seed/amber-g08/900/675',
+      'https://picsum.photos/seed/amber-g09/900/675',
+      'https://picsum.photos/seed/amber-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'diwan-haveli',
+    title: 'Diwan Haveli',
+    category: 'heritage-commercial',
+    tagline: 'A 200-year-old haveli reborn as a heritage guesthouse',
+    shortDesc: 'A 9,600 sq ft haveli in Morbi, transformed over two years from a semi-derelict family property into a working heritage guesthouse.',
+    longDesc: 'The Diwan Haveli in Morbi dates to the early nineteenth century and carries within its fabric successive layers of history: original Mughal-influenced plasterwork, later British colonial additions, and the accumulated evidence of five generations of family life.\n\nThe conversion required new bathrooms, fire escape routes, and accessibility provisions — all introduced with surgical precision to minimise impact on original fabric.\n\nThe fifteen guest rooms are each unique, taking their character from the original room proportions, surviving decoration, and orientation. Every room tells a different part of the building\'s story.',
+    year: '2023', location: 'Morbi, Gujarat', area: '9,600 sq ft',
+    scope: 'Heritage Restoration · Conservation · Adaptive Reuse',
+    cover: 'https://picsum.photos/seed/diwan-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/diwan-g01/900/675',
+      'https://picsum.photos/seed/diwan-g02/900/675',
+      'https://picsum.photos/seed/diwan-g03/900/675',
+      'https://picsum.photos/seed/diwan-g04/900/675',
+      'https://picsum.photos/seed/diwan-g05/900/675',
+      'https://picsum.photos/seed/diwan-g06/900/675',
+      'https://picsum.photos/seed/diwan-g07/900/675',
+      'https://picsum.photos/seed/diwan-g08/900/675',
+      'https://picsum.photos/seed/diwan-g09/900/675',
+      'https://picsum.photos/seed/diwan-g10/900/675'
+    ],
+    featured: false
+  },
+
+  {
+    id: 'novatech-office',
+    title: 'NovaTech Offices',
+    category: 'heritage-commercial',
+    tagline: 'A tech company office that reflects how the industry thinks',
+    shortDesc: 'A 3,800 sq ft office for a growing tech firm in Ahmedabad — open, adaptable, and designed for a company that moves fast.',
+    longDesc: 'NovaTech had outgrown their previous office in every sense. Moving to a larger floor plate presented the opportunity to design from scratch.\n\nThe brief was explicit: no formal hierarchy in the layout, maximum flexibility, and a design that reflected quality without being flashy. We delivered an entirely open plan with a carefully modulated acoustic strategy — acoustic baffles, deep-pile carpeting in work zones, and a deliberate 5dB reduction between the social and focused work areas.\n\nThe materials are honest and industrial in character: exposed concrete ceilings, raw steel columns, plywood joinery — detailed with precision and quality.',
+    year: '2024', location: 'Ahmedabad, Gujarat', area: '3,800 sq ft',
+    scope: 'Commercial Design · Interior Design · Acoustic Strategy',
+    cover: 'https://picsum.photos/seed/novatech-cover/1200/800',
+    gallery: [
+      'https://picsum.photos/seed/novatech-g01/900/675',
+      'https://picsum.photos/seed/novatech-g02/900/675',
+      'https://picsum.photos/seed/novatech-g03/900/675',
+      'https://picsum.photos/seed/novatech-g04/900/675',
+      'https://picsum.photos/seed/novatech-g05/900/675',
+      'https://picsum.photos/seed/novatech-g06/900/675',
+      'https://picsum.photos/seed/novatech-g07/900/675',
+      'https://picsum.photos/seed/novatech-g08/900/675',
+      'https://picsum.photos/seed/novatech-g09/900/675',
+      'https://picsum.photos/seed/novatech-g10/900/675'
+    ],
+    featured: false
+  }
+
+];

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — VOAD Architecture & Interiors</title>
+  <meta name="description" content="Project detail — VOAD Architecture & Interiors, Rajkot." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+<body>
+
+  <!-- ── LOADER ──────────────────────────────────────────── -->
+  <div class="loader">
+    <span class="loader-logo">V O A D</span>
+    <span class="loader-logo-sub">Architecture &amp; Interiors</span>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    <span class="loader-pct">0%</span>
+  </div>
+
+  <!-- ── MOBILE NAV ──────────────────────────────────────── -->
+  <div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="mobile-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- ── NAVIGATION ──────────────────────────────────────── -->
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="VOAD Home">
+      <span class="nav-logo-mark">V O A D</span>
+      <span class="nav-logo-sub">Architecture &amp; Interiors</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── PROJECT CONTENT (rendered by render.js) ─────────── -->
+  <main id="project-root">
+    <!-- Loading state shown until JS renders content -->
+    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;">
+      <p style="font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);">Loading…</p>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo-mark">V O A D</span>
+        <span class="footer-logo-sub">Architecture &amp; Interiors</span>
+        <p class="footer-desc">A Rajkot-based studio specialising in residential, interior, heritage, and commercial design. Available for projects across India.</p>
+      </div>
+      <div>
+        <p class="footer-col-head">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Services</p>
+        <ul class="footer-links">
+          <li><a href="portfolio.html">Residential Architecture</a></li>
+          <li><a href="portfolio.html">Interior Design</a></li>
+          <li><a href="portfolio.html">Commercial Design</a></li>
+          <li><a href="portfolio.html">Heritage Restoration</a></li>
+          <li><a href="portfolio.html">Turnkey Solutions</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Connect</p>
+        <div class="footer-contact">
+          <span style="color:rgba(248,247,244,.45);font-size:.78rem;">Rajkot, Gujarat, India</span>
+          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener">Behance</a>
+          <a href="contact.html">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 VOAD Architecture &amp; Interiors. All rights reserved.</span>
+      <span>Rajkot, Gujarat &nbsp;·&nbsp; Available across India</span>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initProject);
+  </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — VOAD Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #F8F7F4; color: #0D0D0D; min-height: 100vh; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: #0D0D0D;
+      color: #fff;
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-logo { font-weight: 700; font-size: 18px; letter-spacing: .1em; }
+    .topbar-actions { display: flex; gap: 12px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 7px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: background .2s, color .2s; text-decoration: none; }
+    .btn-primary   { background: #B85C38; color: #fff; }
+    .btn-primary:hover { background: #a04e2e; }
+    .btn-ghost { background: transparent; color: #aaa; border: 1px solid #333; }
+    .btn-ghost:hover { color: #fff; border-color: #666; }
+    .btn-danger { background: #c0392b; color: #fff; }
+    .btn-danger:hover { background: #a93226; }
+
+    /* ── MAIN ── */
+    main { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+    .page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+    .page-title { font-size: 26px; font-weight: 700; }
+
+    /* ── TABLE ── */
+    .table-wrap { background: #fff; border: 1px solid #e8e4df; border-radius: 12px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: #f3f1ee; }
+    th { text-align: left; padding: 13px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #777; }
+    td { padding: 14px 16px; font-size: 14px; border-top: 1px solid #f0ede9; vertical-align: middle; }
+    tr:hover td { background: #faf9f7; }
+    .cover-thumb { width: 64px; height: 44px; object-fit: cover; border-radius: 5px; }
+    .badge { display: inline-block; padding: 3px 9px; border-radius: 99px; font-size: 11px; font-weight: 600; }
+    .badge-residential  { background: #e8f4ea; color: #2e7d32; }
+    .badge-interior     { background: #fdf3e7; color: #bf6c00; }
+    .badge-heritage     { background: #e8eaf6; color: #3949ab; }
+    .badge-featured     { background: #fce4ec; color: #c62828; }
+    .row-actions { display: flex; gap: 8px; }
+
+    .empty { text-align: center; padding: 60px; color: #aaa; }
+
+    .status-bar { background: #e8f4ea; color: #2e7d32; padding: 12px 20px; border-radius: 8px; font-size: 14px; margin-bottom: 20px; display: none; }
+    .status-bar.error { background: #fce4ec; color: #c62828; }
+
+    @media (max-width: 700px) {
+      .topbar { padding: 0 16px; }
+      main { padding: 24px 16px; }
+      .col-cover, .col-year, .col-location { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-logo">VOAD Admin</div>
+    <div class="topbar-actions">
+      <a href="../index.html" class="btn btn-ghost" target="_blank">View Site ↗</a>
+      <button class="btn btn-ghost" id="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="page-header">
+      <h1 class="page-title">Projects</h1>
+      <a href="editor.html" class="btn btn-primary">+ Add Project</a>
+    </div>
+
+    <div class="status-bar" id="status-bar"></div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-cover">Cover</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th class="col-year">Year</th>
+            <th class="col-location">Location</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="projects-tbody">
+          <tr><td colspan="6" class="empty">Loading projects…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    const token = sessionStorage.getItem('voad_token');
+    if (!token) location.href = 'index.html';
+
+    const CATEGORY_LABELS = {
+      'residential':         'Residential',
+      'interior':            'Interior Design',
+      'heritage-commercial': 'Heritage & Commercial'
+    };
+    const BADGE_CLASS = {
+      'residential':         'badge-residential',
+      'interior':            'badge-interior',
+      'heritage-commercial': 'badge-heritage'
+    };
+
+    const tbody   = document.getElementById('projects-tbody');
+    const statusBar = document.getElementById('status-bar');
+
+    function showStatus(msg, isError = false) {
+      statusBar.textContent = msg;
+      statusBar.className   = 'status-bar' + (isError ? ' error' : '');
+      statusBar.style.display = 'block';
+      setTimeout(() => { statusBar.style.display = 'none'; }, 4000);
+    }
+
+    async function loadProjects() {
+      try {
+        const res  = await fetch('/api/projects');
+        const data = await res.json();
+        renderTable(data);
+      } catch {
+        tbody.innerHTML = `<tr><td colspan="6" class="empty">Failed to load projects. Check your connection.</td></tr>`;
+      }
+    }
+
+    function renderTable(projects) {
+      if (!projects.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="empty">No projects yet. Add your first one →</td></tr>`;
+        return;
+      }
+      tbody.innerHTML = projects.map(p => {
+        const catLabel = CATEGORY_LABELS[p.category] || p.category;
+        const badgeCls = BADGE_CLASS[p.category]     || '';
+        return `
+          <tr>
+            <td class="col-cover">
+              <img class="cover-thumb" src="${p.cover}" alt="${p.title}" loading="lazy" />
+            </td>
+            <td>
+              <strong>${p.title}</strong>
+              ${p.featured ? '<span class="badge badge-featured" style="margin-left:8px;">Featured</span>' : ''}
+            </td>
+            <td><span class="badge ${badgeCls}">${catLabel}</span></td>
+            <td class="col-year">${p.year || '—'}</td>
+            <td class="col-location">${p.location || '—'}</td>
+            <td>
+              <div class="row-actions">
+                <a href="editor.html?id=${p.id}" class="btn btn-primary" style="font-size:13px;padding:6px 12px;">Edit</a>
+                <button class="btn btn-danger" style="font-size:13px;padding:6px 12px;" onclick="deleteProject('${p.id}', '${p.title.replace(/'/g, "\\'")}')">Delete</button>
+              </div>
+            </td>
+          </tr>`;
+      }).join('');
+    }
+
+    async function deleteProject(id, title) {
+      if (!confirm(`Delete "${title}"? This cannot be undone.`)) return;
+      try {
+        const res = await fetch('/api/projects', {
+          method:  'DELETE',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+          body:    JSON.stringify({ id })
+        });
+        const data = await res.json();
+        if (data.ok) {
+          showStatus(`"${title}" deleted.`);
+          loadProjects();
+        } else {
+          showStatus(data.error || 'Delete failed.', true);
+        }
+      } catch {
+        showStatus('Delete failed. Check your connection.', true);
+      }
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      sessionStorage.removeItem('voad_token');
+      location.href = 'index.html';
+    });
+
+    loadProjects();
+  </script>
+</body>
+</html>

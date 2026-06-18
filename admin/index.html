@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — VOAD</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F8F7F4;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e8e4df;
+      border-radius: 12px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0D0D0D;
+      margin-bottom: 8px;
+    }
+    .sub { color: #888; font-size: 14px; margin-bottom: 32px; }
+    label { display: block; font-size: 13px; font-weight: 500; color: #444; margin-bottom: 6px; }
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color .2s;
+      margin-bottom: 20px;
+    }
+    input[type="password"]:focus { border-color: #B85C38; }
+    button {
+      width: 100%;
+      padding: 13px;
+      background: #B85C38;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    button:hover { background: #a04e2e; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    .error {
+      color: #c0392b;
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="card">
+    <div class="logo">VOAD</div>
+    <div class="sub">Admin Panel — Enter password to continue</div>
+    <form id="login-form">
+      <label for="pwd">Password</label>
+      <input type="password" id="pwd" placeholder="••••••••" autocomplete="current-password" required />
+      <button type="submit" id="btn">Login →</button>
+      <div class="error" id="err">Incorrect password. Try again.</div>
+    </form>
+  </div>
+
+  <script>
+    if (sessionStorage.getItem('voad_token')) {
+      location.href = 'dashboard.html';
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btn');
+      const err = document.getElementById('err');
+      const pwd = document.getElementById('pwd').value;
+
+      btn.textContent = 'Logging in…';
+      btn.disabled = true;
+      err.style.display = 'none';
+
+      try {
+        const res  = await fetch('/api/auth', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ password: pwd })
+        });
+        const data = await res.json();
+
+        if (data.token) {
+          sessionStorage.setItem('voad_token', data.token);
+          location.href = 'dashboard.html';
+        } else {
+          err.style.display = 'block';
+          btn.textContent = 'Login →';
+          btn.disabled = false;
+        }
+      } catch {
+        err.textContent = 'Connection error. Check your internet.';
+        err.style.display = 'block';
+        btn.textContent = 'Login →';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
