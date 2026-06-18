@@ -130,20 +130,22 @@ function attachFilter(container, filterBtns) {
   });
 }
 
-function initPortfolio() {
+async function initPortfolio() {
   const container  = document.getElementById('all-projects');
   const filterBtns = document.querySelectorAll('.filter-btn');
   if (!container) return;
 
   function renderAll(projects) {
     container.innerHTML = projects.map(cardHTML).join('');
-    revealCards(container);
+    container.querySelectorAll('.proj-card').forEach(el => {
+      el.style.opacity   = '1';
+      el.style.transform = 'none';
+    });
     attachFilter(container, filterBtns);
   }
 
-  renderAll(getLocalProjects());
-
-  fetchFromServer().then(live => { if (live) renderAll(live); });
+  const live = await fetchFromServer();
+  renderAll(live || getLocalProjects());
 }
 
 /* ── PROJECT DETAIL PAGE ───────────────────────────────────── */
