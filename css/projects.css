@@ -2,6 +2,59 @@
    VOAD — Project Cards, Filter Bar, Detail Page, Gallery
    ============================================================ */
 
+/* ── HOME FEATURED SLIDER ───────────────────────────────────── */
+.slider-controls {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.sl-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--ease), border-color var(--ease), color var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sl-btn:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.sl-btn:disabled {
+  opacity: .3;
+  cursor: default;
+  pointer-events: none;
+}
+.slider-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 -4rem;
+  padding: 0 4rem;
+}
+.slider-viewport::-webkit-scrollbar { display: none; }
+.slider-track {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: .5rem;
+  width: max-content;
+}
+.slider-track .proj-card {
+  flex: 0 0 340px;
+}
+@media (max-width: 768px) {
+  .slider-viewport { margin: 0 -1.5rem; padding: 0 1.5rem; }
+  .slider-track .proj-card { flex: 0 0 270px; }
+}
+
 /* ── PROJECT CARD (portfolio grid) ─────────────────────────── */
 .proj-grid {
   display: grid;

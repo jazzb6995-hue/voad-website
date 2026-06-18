@@ -29,12 +29,14 @@ module.exports = async function handler(req, res) {
       <p style="color:#aaa;font-size:12px;">Sent from voadarchitecture.com contact form</p>
     </div>`;
 
+  const toEmail = process.env.NOTIFICATION_EMAIL || 'jash.bavishi1@gmail.com';
+
   try {
     await resend.emails.send({
       from:    'VOAD Website <onboarding@resend.dev>',
-      to:      process.env.NOTIFICATION_EMAIL,
+      to:      toEmail,
       replyTo: email,
-      subject: `New Enquiry from ${name}`,
+      subject: `New Enquiry from ${name} — VOAD`,
       html
     });
     res.json({ ok: true });

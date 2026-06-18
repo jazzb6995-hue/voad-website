@@ -89,22 +89,38 @@ function revealCards(container) {
 /* ── HOME PAGE ─────────────────────────────────────────────── */
 
 function initHome() {
-  const container = document.getElementById('featured-projects');
-  if (!container) return;
-
-  const order = ['residential', 'interior', 'commercial', 'heritage', 'renovation', 'turnkey'];
+  const track    = document.getElementById('featured-projects');
+  if (!track) return;
+  const viewport = track.parentElement;
+  const prevBtn  = document.querySelector('.sl-prev');
+  const nextBtn  = document.querySelector('.sl-next');
 
   function renderFeatured(projects) {
-    const featured = order.map(cat =>
-      projects.find(p => p.category === cat && p.featured) ||
-      projects.find(p => p.category === cat)
-    ).filter(Boolean).slice(0, 6);
-    container.innerHTML = featured.map(cardHTML).join('');
-    revealCards(container);
+    const featured = projects.filter(p => p.featured);
+    const display  = featured.length ? featured : projects.slice(0, 6);
+    track.innerHTML = display.map(cardHTML).join('');
+    revealCards(track);
+    setTimeout(updateArrows, 100);
   }
 
-  renderFeatured(getLocalProjects());
+  function updateArrows() {
+    if (!prevBtn || !nextBtn || !viewport) return;
+    prevBtn.disabled = viewport.scrollLeft <= 2;
+    nextBtn.disabled = viewport.scrollLeft >= viewport.scrollWidth - viewport.clientWidth - 5;
+  }
 
+  function slideBy(dir) {
+    const card = track.querySelector('.proj-card');
+    const amt  = card ? card.offsetWidth + 24 : 400;
+    viewport.scrollBy({ left: dir * amt, behavior: 'smooth' });
+    setTimeout(updateArrows, 450);
+  }
+
+  prevBtn?.addEventListener('click', () => slideBy(-1));
+  nextBtn?.addEventListener('click', () => slideBy(1));
+  viewport?.addEventListener('scroll', updateArrows, { passive: true });
+
+  renderFeatured(getLocalProjects());
   fetchFromServer().then(live => { if (live) renderFeatured(live); });
 }
 

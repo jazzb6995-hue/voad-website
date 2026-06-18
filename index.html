@@ -84,12 +84,18 @@
       <div>
         <p class="section-label reveal">Selected Work</p>
         <h2 class="section-heading reveal delay-1">Crafted Works</h2>
-        <p class="section-body reveal delay-2" style="margin-top:.75rem;">A curated selection from our portfolio of over 70 completed projects, spanning bespoke homes, refined interiors, and restored heritage structures across Gujarat and India.</p>
+        <p class="section-body reveal delay-2" style="margin-top:.75rem;">Projects marked as featured in the admin panel appear here. Toggle any project as featured to include it in this section.</p>
       </div>
-      <a href="portfolio.html" class="about-cta reveal delay-2">View Full Portfolio</a>
+      <div class="slider-controls reveal delay-2">
+        <button class="sl-btn sl-prev" aria-label="Previous">&#8592;</button>
+        <button class="sl-btn sl-next" aria-label="Next">&#8594;</button>
+        <a href="portfolio.html" class="about-cta" style="margin-left:.75rem;">View All</a>
+      </div>
     </div>
-    <div id="featured-projects" class="proj-grid">
-      <div class="proj-skeleton">Loading projects&hellip;</div>
+    <div class="slider-viewport">
+      <div id="featured-projects" class="slider-track">
+        <div class="proj-skeleton">Loading projects&hellip;</div>
+      </div>
     </div>
   </section>
 
