@@ -27,10 +27,8 @@ function getLocalProjects() {
 }
 
 async function fetchFromServer() {
-  const cfg = (typeof VOAD_CONFIG !== 'undefined') ? VOAD_CONFIG : {};
-  if (!cfg.liveFromServer || !cfg.apiUrl) return null;
   try {
-    const res  = await fetch(cfg.apiUrl);
+    const res  = await fetch('/api/projects');
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if (Array.isArray(data) && data.length) return normalizeProjects(data);
@@ -287,11 +285,8 @@ function initContactForm() {
     btn.textContent = 'Sending…';
     btn.disabled    = true;
 
-    const cfg        = (typeof VOAD_CONFIG !== 'undefined') ? VOAD_CONFIG : {};
-    const contactUrl = cfg.contactUrl || '/api/contact.php';
-
     try {
-      const res  = await fetch(contactUrl, {
+      const res  = await fetch('/api/contact', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(payload)
