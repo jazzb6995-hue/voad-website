@@ -152,9 +152,12 @@
         <div class="field">
           <label for="f-category">Category *</label>
           <select id="f-category">
-            <option value="residential">Residential</option>
+            <option value="residential">Residential Architecture</option>
             <option value="interior">Interior Design</option>
-            <option value="heritage-commercial">Heritage &amp; Commercial</option>
+            <option value="commercial">Commercial &amp; Office Design</option>
+            <option value="heritage">Haveli &amp; Heritage Restoration</option>
+            <option value="renovation">Renovation &amp; Remodeling</option>
+            <option value="turnkey">Turnkey Solutions</option>
           </select>
         </div>
       </div>
@@ -399,12 +402,11 @@
     }
 
     function toggleAddBtn() {
-      document.getElementById('add-photo-btn').style.display =
-        galleryUrls.length >= 10 ? 'none' : 'flex';
+      document.getElementById('add-photo-btn').style.display = 'flex';
     }
 
     document.getElementById('gallery-file').addEventListener('change', async function () {
-      const files = [...this.files].slice(0, 10 - galleryUrls.length);
+      const files = [...this.files];
       if (!files.length) return;
       this.value = '';
 

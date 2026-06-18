@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VOAD — Architecture & Interiors</title>
-  <meta name="description" content="VOAD is a Rajkot-based Architecture and Interior Design studio led by Ar. Vivek Bosmiya. Residential, commercial, and heritage projects across India." />
+  <title>VOAD Architecture & Interiors — Rajkot | Residential, Interior & Heritage Design</title>
+  <meta name="description" content="VOAD is a Rajkot-based architecture and interior design studio led by Ar. Vivek Bosmiya. Specialising in bespoke residences, luxury interiors, heritage restoration, and commercial design across Gujarat and India." />
+  <meta name="keywords" content="architecture firm Rajkot, interior design Gujarat, residential architect, heritage restoration, bungalow design, villa architect, turnkey solutions India, VOAD architecture" />
+  <link rel="canonical" href="https://voadarchitecture.com/" />
+  <meta property="og:title" content="VOAD Architecture & Interiors — Rajkot" />
+  <meta property="og:description" content="Bespoke architecture and interior design from Rajkot, Gujarat. Residential, commercial, heritage & turnkey projects across India." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
@@ -13,7 +18,7 @@
 </head>
 <body>
 
-  <!-- ── LOADER ──────────────────────────────────────────── -->
+  <!-- ── LOADER ── -->
   <div class="loader">
     <span class="loader-logo">V O A D</span>
     <span class="loader-logo-sub">Architecture &amp; Interiors</span>
@@ -21,7 +26,7 @@
     <span class="loader-pct">0%</span>
   </div>
 
-  <!-- ── MOBILE NAV ──────────────────────────────────────── -->
+  <!-- ── MOBILE NAV ── -->
   <div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
     <button class="mobile-close" aria-label="Close menu">&times;</button>
     <a href="index.html">Home</a>
@@ -30,7 +35,7 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- ── NAVIGATION ──────────────────────────────────────── -->
+  <!-- ── NAVIGATION ── -->
   <nav aria-label="Main navigation">
     <a href="index.html" class="nav-logo" aria-label="VOAD Home">
       <span class="nav-logo-mark">V O A D</span>
@@ -47,18 +52,20 @@
     </button>
   </nav>
 
-  <!-- ── HERO ────────────────────────────────────────────── -->
+  <!-- ── HERO ── -->
   <section class="hero" aria-label="Hero">
-    <div class="hero-bg" style="background-image: url('https://picsum.photos/seed/voad-hero/1800/900');"></div>
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=80');"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
+      <p class="hero-eyebrow">Architecture &amp; Interior Design Studio — Rajkot, Gujarat</p>
       <h1>Designing the Spaces<br>That Shape Experiences</h1>
-      <p>Spaces Shaped by Purpose</p>
+      <p class="hero-sub">Bespoke residences · Refined interiors · Heritage conservation · Turnkey delivery</p>
+      <a href="portfolio.html" class="hero-cta">Explore Our Work</a>
       <span class="scroll-hint">Scroll Down</span>
     </div>
   </section>
 
-  <!-- ── TICKER ──────────────────────────────────────────── -->
+  <!-- ── TICKER ── -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
       <span class="ticker-item">Residential Architecture <span class="ticker-dot">·</span></span>
@@ -67,52 +74,91 @@
       <span class="ticker-item">Haveli &amp; Heritage Restoration <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Renovation &amp; Remodelling <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Turnkey Solutions <span class="ticker-dot">·</span></span>
-      <span class="ticker-item">Rajkot, Gujarat <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Residential Architecture <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Interior Design <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Commercial &amp; Office Design <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Haveli &amp; Heritage Restoration <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Renovation &amp; Remodelling <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Turnkey Solutions <span class="ticker-dot">·</span></span>
-      <span class="ticker-item">Rajkot, Gujarat <span class="ticker-dot">·</span></span>
     </div>
   </div>
 
-  <!-- ── FEATURED PROJECTS (loaded dynamically) ───────────── -->
+  <!-- ── FEATURED PROJECTS ── -->
   <section class="section section-white">
     <div class="cards-intro">
       <div>
-        <p class="section-label reveal">Our Work</p>
-        <h2 class="section-heading reveal delay-1">Selected Projects</h2>
+        <p class="section-label reveal">Selected Work</p>
+        <h2 class="section-heading reveal delay-1">Crafted Works</h2>
+        <p class="section-body reveal delay-2" style="margin-top:.75rem;">A curated selection from our portfolio of over 70 completed projects — spanning bespoke homes, refined interiors, and restored heritage structures across Gujarat and India.</p>
       </div>
-      <a href="portfolio.html" class="about-cta reveal delay-2">View All Projects</a>
+      <a href="portfolio.html" class="about-cta reveal delay-2">View Full Portfolio</a>
     </div>
-
-    <!-- render.js populates this with one featured card per category -->
     <div id="featured-projects" class="proj-grid">
       <div class="proj-skeleton">Loading projects…</div>
     </div>
   </section>
 
-  <!-- ── ABOUT PREVIEW ─────────────────────────────────────── -->
-  <section class="section section-bg">
+  <!-- ── SERVICES ── -->
+  <section class="section section-bg" id="services">
+    <div style="max-width:680px;">
+      <p class="section-label reveal">What We Do</p>
+      <h2 class="section-heading reveal delay-1">Six Specialisms.<br>One Integrated Studio.</h2>
+      <p class="section-body reveal delay-2">From the first sketch to the final handover, VOAD offers complete architectural and interior design services tailored to each client's vision — residential, commercial, or heritage.</p>
+    </div>
+    <div class="services-grid" style="margin-top:3.5rem;">
+      <div class="svc-item reveal">
+        <p class="svc-num">01</p>
+        <h3 class="svc-name">Residential Architecture</h3>
+        <p class="svc-desc">Bespoke homes designed around how people actually live — including bungalows, villas, and farmhouses tailored to the Gujarat climate and your family's lifestyle. Every plan begins with understanding how you want to inhabit space.</p>
+      </div>
+      <div class="svc-item reveal delay-1">
+        <p class="svc-num">02</p>
+        <h3 class="svc-name">Interior Design</h3>
+        <p class="svc-desc">Refined interiors for residences, kitchens, suites, and premium hospitality environments. We work with materials, light, and proportion to create spaces that feel both sophisticated and deeply personal.</p>
+      </div>
+      <div class="svc-item reveal">
+        <p class="svc-num">03</p>
+        <h3 class="svc-name">Commercial &amp; Office Design</h3>
+        <p class="svc-desc">Workspaces designed to support productivity, reflect brand identity, and attract talent. From boutique studios to corporate offices, we design environments that communicate who you are before a word is spoken.</p>
+      </div>
+      <div class="svc-item reveal delay-1">
+        <p class="svc-num">04</p>
+        <h3 class="svc-name">Haveli &amp; Heritage Restoration</h3>
+        <p class="svc-desc">Sympathetic restoration and adaptive reuse of historic havelis and heritage buildings. We preserve original craftsmanship — carved jharokhas, lime plaster, stone floors — while bringing spaces into contemporary use.</p>
+      </div>
+      <div class="svc-item reveal">
+        <p class="svc-num">05</p>
+        <h3 class="svc-name">Renovation &amp; Remodeling</h3>
+        <p class="svc-desc">Transforming existing spaces through improved layouts, upgraded materials, and refined finishes. Whether a single room or an entire floor, we approach renovation with the same rigour as new construction.</p>
+      </div>
+      <div class="svc-item reveal delay-1">
+        <p class="svc-num">06</p>
+        <h3 class="svc-name">Turnkey Solutions</h3>
+        <p class="svc-desc">Complete project execution from concept development through construction supervision to final handover. One point of contact, full accountability — so you can focus on your life while we build your space.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT PREVIEW ── -->
+  <section class="section section-white">
     <div class="about-preview">
       <div class="about-img-wrap reveal">
         <img class="about-img"
-             src="https://picsum.photos/seed/voad-about-preview/800/1000"
-             alt="Interior design detail — warm tones and natural materials"
+             src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80"
+             alt="Ar. Vivek Bosmiya — Principal Architect, VOAD Architecture & Interiors, Rajkot"
              loading="lazy" />
       </div>
       <div class="about-text">
         <p class="section-label reveal">About VOAD</p>
         <h2 class="section-heading reveal delay-1">Design Rooted<br>in Purpose</h2>
-        <p class="section-body reveal delay-2">At VOAD, we believe great design goes beyond aesthetics. It's about creating environments that enhance your life, your work, and your connections. Led by Ar. Vivek Bosmiya with nine years of practice, our studio transforms client visions into cohesive, well-detailed spaces that stand the test of time.</p>
-        <a href="about.html" class="about-cta reveal delay-3">Read More</a>
+        <p class="section-body reveal delay-2">At VOAD Architecture &amp; Interiors, we believe great design goes beyond aesthetics. It is about creating environments that enhance how you live, work, and connect. Led by Ar. Vivek Bosmiya with nine years of practice across Gujarat and India, our Rajkot-based studio transforms client visions into cohesive, meticulously detailed spaces that stand the test of time.</p>
+        <p class="section-body reveal delay-2" style="margin-top:1rem;">We work across residential architecture, interior design, commercial projects, heritage restoration, and turnkey delivery — bringing the same level of rigour and thoughtfulness to every project regardless of scale.</p>
+        <a href="about.html" class="about-cta reveal delay-3">About the Studio</a>
       </div>
     </div>
   </section>
 
-  <!-- ── STATS ─────────────────────────────────────────────── -->
+  <!-- ── STATS ── -->
   <div class="section-dark">
     <div class="stats-grid">
       <div class="stat-cell reveal">
@@ -130,7 +176,7 @@
     </div>
   </div>
 
-  <!-- ── TESTIMONIALS ──────────────────────────────────────── -->
+  <!-- ── TESTIMONIALS ── -->
   <section class="section section-bg">
     <div class="testi-header">
       <div>
@@ -148,20 +194,20 @@
           <div class="testi-meta">
             <span class="testi-idx">01</span>
             <span class="testi-client">Patel Residences</span>
-            <span class="testi-project-type">Residential &nbsp;·&nbsp; Rajkot</span>
+            <span class="testi-project-type">Residential Architecture &nbsp;·&nbsp; Rajkot</span>
           </div>
           <blockquote class="testi-quote">
-            VOAD transformed our house into a home we're genuinely proud to live in.
+            VOAD transformed our house into a home we are genuinely proud to live in. Every detail was considered — from the way morning light enters the living room to the texture of materials underfoot.
           </blockquote>
         </div>
         <div class="testi-card">
           <div class="testi-meta">
             <span class="testi-idx">02</span>
             <span class="testi-client">Meridian Corporate Park</span>
-            <span class="testi-project-type">Commercial &nbsp;·&nbsp; Rajkot</span>
+            <span class="testi-project-type">Commercial Design &nbsp;·&nbsp; Rajkot</span>
           </div>
           <blockquote class="testi-quote">
-            They didn't just design our office — they elevated how our entire team works.
+            They did not just design our office — they elevated how our entire team works. The space communicates our brand values before a single conversation takes place.
           </blockquote>
         </div>
         <div class="testi-card">
@@ -171,47 +217,61 @@
             <span class="testi-project-type">Heritage Restoration &nbsp;·&nbsp; Gujarat</span>
           </div>
           <blockquote class="testi-quote">
-            A rare ability to honour tradition while making a space feel completely alive today.
+            A rare ability to honour tradition while making a space feel completely alive today. The restored haveli now draws visitors from across the country.
           </blockquote>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <!-- ── CTA ── -->
+  <section class="section section-dark" style="text-align:center;">
+    <p class="section-label reveal" style="color:var(--accent);">Start a Project</p>
+    <h2 class="section-heading reveal delay-1" style="color:var(--bg);max-width:580px;margin:0 auto 1rem;">Have a Project in Mind?</h2>
+    <p class="reveal delay-2" style="color:rgba(248,247,244,.55);font-size:1rem;max-width:480px;margin:0 auto 2.5rem;line-height:1.8;">Whether it is a new home, a renovation, a heritage property, or a commercial space — we would love to hear about it.</p>
+    <a href="contact.html" class="contact-btn reveal delay-3">Get In Touch →</a>
+  </section>
+
+  <!-- ── FOOTER ── -->
   <footer>
-    <div class="footer-grid">
-      <div>
+    <div class="footer-top">
+      <div class="footer-brand">
         <span class="footer-logo-mark">V O A D</span>
         <span class="footer-logo-sub">Architecture &amp; Interiors</span>
-        <p class="footer-desc">A Rajkot-based studio specialising in residential, interior, heritage, and commercial design. Available for projects across India.</p>
+        <p class="footer-desc">A Rajkot-based architecture and interior design studio specialising in bespoke residences, luxury interiors, heritage restoration, commercial spaces, and turnkey project delivery across Gujarat and India.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener" class="footer-social-link">Behance</a>
+        </div>
       </div>
-      <div>
-        <p class="footer-col-head">Navigate</p>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-head">Services</p>
-        <ul class="footer-links">
-          <li><a href="portfolio.html">Residential Architecture</a></li>
-          <li><a href="portfolio.html">Interior Design</a></li>
-          <li><a href="portfolio.html">Commercial Design</a></li>
-          <li><a href="portfolio.html">Heritage Restoration</a></li>
-          <li><a href="portfolio.html">Turnkey Solutions</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-head">Connect</p>
-        <div class="footer-contact">
-          <span style="color:rgba(248,247,244,.45);font-size:.78rem;">Rajkot, Gujarat, India</span>
-          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener">Behance</a>
-          <a href="contact.html">Get In Touch</a>
+      <div class="footer-cols">
+        <div>
+          <p class="footer-col-head">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-head">Services</p>
+          <ul class="footer-links">
+            <li><a href="portfolio.html?filter=residential">Residential Architecture</a></li>
+            <li><a href="portfolio.html?filter=interior">Interior Design</a></li>
+            <li><a href="portfolio.html?filter=commercial">Commercial Design</a></li>
+            <li><a href="portfolio.html?filter=heritage">Heritage Restoration</a></li>
+            <li><a href="portfolio.html?filter=renovation">Renovation</a></li>
+            <li><a href="portfolio.html?filter=turnkey">Turnkey Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-head">Contact</p>
+          <div class="footer-contact">
+            <span class="footer-contact-item">Rajkot, Gujarat, India</span>
+            <a href="contact.html" class="footer-contact-item">Get In Touch →</a>
+            <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener" class="footer-contact-item">@architect.vivekbosmiya</a>
+          </div>
         </div>
       </div>
     </div>
@@ -221,10 +281,10 @@
     </div>
   </footer>
 
-  <script src="js/config.js?v=3"></script>
-  <script src="js/data.js?v=3"></script>
-  <script src="js/render.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/config.js?v=4"></script>
+  <script src="js/data.js?v=4"></script>
+  <script src="js/render.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
   <script>
     document.addEventListener('DOMContentLoaded', initHome);
   </script>

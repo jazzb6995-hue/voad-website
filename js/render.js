@@ -5,9 +5,13 @@
    ============================================================ */
 
 const CATEGORY_LABELS = {
-  'residential':          'Residential',
-  'interior':             'Interior Design',
-  'heritage-commercial':  'Heritage & Commercial'
+  'residential':         'Residential Architecture',
+  'interior':            'Interior Design',
+  'commercial':          'Commercial & Office Design',
+  'heritage':            'Haveli & Heritage Restoration',
+  'renovation':          'Renovation & Remodeling',
+  'turnkey':             'Turnkey Solutions',
+  'heritage-commercial': 'Heritage & Commercial'
 };
 
 /* ── DATA ──────────────────────────────────────────────────── */
@@ -85,13 +89,13 @@ function initHome() {
   const container = document.getElementById('featured-projects');
   if (!container) return;
 
-  const order    = ['residential', 'interior', 'heritage-commercial'];
+  const order = ['residential', 'interior', 'commercial', 'heritage', 'renovation', 'turnkey'];
 
   function renderFeatured(projects) {
     const featured = order.map(cat =>
       projects.find(p => p.category === cat && p.featured) ||
       projects.find(p => p.category === cat)
-    ).filter(Boolean);
+    ).filter(Boolean).slice(0, 6);
     container.innerHTML = featured.map(cardHTML).join('');
     revealCards(container);
   }

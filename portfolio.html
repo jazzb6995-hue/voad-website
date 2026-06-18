@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — VOAD Architecture & Interiors</title>
-  <meta name="description" content="Explore VOAD's portfolio of residential, interior design, and heritage restoration projects across Rajkot and Gujarat." />
+  <title>Portfolio — VOAD Architecture & Interiors | Rajkot Architecture Studio</title>
+  <meta name="description" content="Explore VOAD's portfolio of residential architecture, interior design, heritage restoration, commercial spaces, renovation and turnkey projects across Rajkot and Gujarat." />
+  <meta name="keywords" content="architecture portfolio Rajkot, interior design portfolio Gujarat, residential projects, heritage restoration projects, VOAD architecture works" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
@@ -49,11 +50,11 @@
 
   <!-- ── PAGE HERO ───────────────────────────────────────── -->
   <header class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('https://picsum.photos/seed/voad-portfolio/1800/900');"></div>
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
       <h1>Our Portfolio</h1>
-      <p>Thoughtful design across every scale and context</p>
+      <p>Residential, commercial, heritage &amp; interior projects across Gujarat and India</p>
     </div>
   </header>
 
@@ -66,14 +67,12 @@
       <span class="ticker-item">Haveli &amp; Heritage Restoration <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Renovation &amp; Remodelling <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Turnkey Solutions <span class="ticker-dot">·</span></span>
-      <span class="ticker-item">Rajkot, Gujarat <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Residential Architecture <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Interior Design <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Commercial &amp; Office Design <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Haveli &amp; Heritage Restoration <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Renovation &amp; Remodelling <span class="ticker-dot">·</span></span>
       <span class="ticker-item">Turnkey Solutions <span class="ticker-dot">·</span></span>
-      <span class="ticker-item">Rajkot, Gujarat <span class="ticker-dot">·</span></span>
     </div>
   </div>
 
@@ -85,10 +84,12 @@
       <button class="filter-btn active" data-filter="all">All Projects</button>
       <button class="filter-btn" data-filter="residential">Residential</button>
       <button class="filter-btn" data-filter="interior">Interior Design</button>
-      <button class="filter-btn" data-filter="heritage-commercial">Heritage &amp; Commercial</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+      <button class="filter-btn" data-filter="heritage">Heritage</button>
+      <button class="filter-btn" data-filter="renovation">Renovation</button>
+      <button class="filter-btn" data-filter="turnkey">Turnkey</button>
     </div>
 
-    <!-- render.js populates this with all 15 project cards -->
     <div id="all-projects" class="proj-grid">
       <div class="proj-skeleton">Loading projects…</div>
     </div>
@@ -96,48 +97,55 @@
   </section>
 
   <!-- ── CTA ───────────────────────────────────────────────── -->
-  <section class="section section-dark" style="text-align:center;padding:5rem 4rem;">
+  <section class="section section-dark" style="text-align:center;">
     <p class="section-label reveal" style="color:var(--accent);">Start a Project</p>
-    <h2 class="section-heading reveal delay-1" style="color:var(--bg);max-width:560px;margin:0 auto 2rem;">
+    <h2 class="section-heading reveal delay-1" style="color:var(--bg);max-width:560px;margin:0 auto 1rem;">
       Ready to Design Your Space?
     </h2>
-    <a href="contact.html" class="contact-btn reveal delay-2">Get In Touch</a>
+    <p class="reveal delay-2" style="color:rgba(248,247,244,.55);font-size:1rem;max-width:440px;margin:0 auto 2.5rem;line-height:1.8;">Tell us about your project — we would love to explore what we can create together.</p>
+    <a href="contact.html" class="contact-btn reveal delay-3">Get In Touch →</a>
   </section>
 
   <!-- ── FOOTER ─────────────────────────────────────────────── -->
   <footer>
-    <div class="footer-grid">
-      <div>
+    <div class="footer-top">
+      <div class="footer-brand">
         <span class="footer-logo-mark">V O A D</span>
         <span class="footer-logo-sub">Architecture &amp; Interiors</span>
-        <p class="footer-desc">A Rajkot-based studio specialising in residential, interior, heritage, and commercial design. Available for projects across India.</p>
+        <p class="footer-desc">A Rajkot-based architecture and interior design studio specialising in bespoke residences, luxury interiors, heritage restoration, commercial spaces, and turnkey project delivery across Gujarat and India.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener" class="footer-social-link">Behance</a>
+        </div>
       </div>
-      <div>
-        <p class="footer-col-head">Navigate</p>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-head">Services</p>
-        <ul class="footer-links">
-          <li><a href="portfolio.html">Residential Architecture</a></li>
-          <li><a href="portfolio.html">Interior Design</a></li>
-          <li><a href="portfolio.html">Commercial Design</a></li>
-          <li><a href="portfolio.html">Heritage Restoration</a></li>
-          <li><a href="portfolio.html">Turnkey Solutions</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-head">Connect</p>
-        <div class="footer-contact">
-          <span style="color:rgba(248,247,244,.45);font-size:.78rem;">Rajkot, Gujarat, India</span>
-          <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.behance.net/vivekbosmiya" target="_blank" rel="noopener">Behance</a>
-          <a href="contact.html">Get In Touch</a>
+      <div class="footer-cols">
+        <div>
+          <p class="footer-col-head">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-head">Services</p>
+          <ul class="footer-links">
+            <li><a href="portfolio.html?filter=residential">Residential Architecture</a></li>
+            <li><a href="portfolio.html?filter=interior">Interior Design</a></li>
+            <li><a href="portfolio.html?filter=commercial">Commercial Design</a></li>
+            <li><a href="portfolio.html?filter=heritage">Heritage Restoration</a></li>
+            <li><a href="portfolio.html?filter=renovation">Renovation</a></li>
+            <li><a href="portfolio.html?filter=turnkey">Turnkey Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-head">Contact</p>
+          <div class="footer-contact">
+            <span class="footer-contact-item">Rajkot, Gujarat, India</span>
+            <a href="contact.html" class="footer-contact-item">Get In Touch →</a>
+            <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener" class="footer-contact-item">@architect.vivekbosmiya</a>
+          </div>
         </div>
       </div>
     </div>
@@ -147,10 +155,10 @@
     </div>
   </footer>
 
-  <script src="js/config.js?v=3"></script>
-  <script src="js/data.js?v=3"></script>
-  <script src="js/render.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/config.js?v=4"></script>
+  <script src="js/data.js?v=4"></script>
+  <script src="js/render.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
   <script>
     document.addEventListener('DOMContentLoaded', initPortfolio);
   </script>
