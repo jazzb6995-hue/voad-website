@@ -11,7 +11,10 @@ const CATEGORY_LABELS = {
   'heritage':            'Haveli & Heritage Restoration',
   'renovation':          'Renovation & Remodeling',
   'turnkey':             'Turnkey Solutions',
-  'heritage-commercial': 'Heritage & Commercial'
+  'heritage-commercial': 'Haveli & Heritage Restoration',
+  'restoration':         'Haveli & Heritage Restoration',
+  'remodeling':          'Renovation & Remodeling',
+  'remodelling':         'Renovation & Remodeling'
 };
 
 /* ── DATA ──────────────────────────────────────────────────── */
@@ -105,6 +108,19 @@ function initHome() {
   fetchFromServer().then(live => { if (live) renderFeatured(live); });
 }
 
+/* ── FILTER ALIASES ────────────────────────────────────────── */
+/* Maps a filter-button value to all category slugs it should match */
+const FILTER_ALIASES = {
+  'heritage': ['heritage', 'heritage-commercial', 'restoration'],
+  'renovation': ['renovation', 'remodeling', 'remodelling']
+};
+
+function categoryMatchesFilter(category, filter) {
+  if (filter === 'all') return true;
+  const group = FILTER_ALIASES[filter];
+  return group ? group.includes(category) : category === filter;
+}
+
 /* ── PORTFOLIO PAGE ────────────────────────────────────────── */
 
 function attachFilter(container, filterBtns) {
@@ -115,7 +131,7 @@ function attachFilter(container, filterBtns) {
       const filter = btn.dataset.filter;
 
       container.querySelectorAll('.proj-card').forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
+        const match = categoryMatchesFilter(card.dataset.category, filter);
         if (match) {
           card.style.display = 'block';
           requestAnimationFrame(() => {
