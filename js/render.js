@@ -8,11 +8,11 @@ const CATEGORY_LABELS = {
   'residential':         'Residential Architecture',
   'interior':            'Interior Design',
   'commercial':          'Commercial & Office Design',
-  'heritage':            'Haveli & Heritage Restoration',
+  'heritage':            'Heritage Designs',
   'renovation':          'Renovation & Remodeling',
   'turnkey':             'Turnkey Solutions',
-  'heritage-commercial': 'Haveli & Heritage Restoration',
-  'restoration':         'Haveli & Heritage Restoration',
+  'heritage-commercial': 'Heritage Designs',
+  'restoration':         'Heritage Designs',
   'remodeling':          'Renovation & Remodeling',
   'remodelling':         'Renovation & Remodeling'
 };
