@@ -32,16 +32,20 @@ module.exports = async function handler(req, res) {
   const toEmail = process.env.NOTIFICATION_EMAIL || 'jash.bavishi1@gmail.com';
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from:    'VOAD Website <onboarding@resend.dev>',
       to:      toEmail,
       replyTo: email,
       subject: `New Enquiry from ${name} — VOAD`,
       html
     });
+    if (error) {
+      console.error('Resend error:', JSON.stringify(error));
+      return res.status(500).json({ error: 'Failed to send email. Please try again.' });
+    }
     res.json({ ok: true });
   } catch (e) {
-    console.error('Resend error:', e);
+    console.error('Resend exception:', e);
     res.status(500).json({ error: 'Failed to send email. Please try again.' });
   }
 };
