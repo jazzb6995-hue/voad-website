@@ -295,6 +295,10 @@ async function initProject() {
         <span class="proj-nav-name">${next.title}</span>
       </a>
     </nav>`;
+
+  /* Wire gallery lightbox */
+  const galleryImgs = Array.from(root.querySelectorAll('.proj-gallery-item img'));
+  if (galleryImgs.length) initLightbox(galleryImgs);
 }
 
 /* ── CONTACT FORM ──────────────────────────────────────────── */
@@ -318,8 +322,19 @@ function initContactForm() {
       message:     form.querySelector('#message')?.value.trim()  || ''
     };
 
+    /* Client-side validation — stop before any fetch */
+    if (!payload.name || !payload.email || !payload.message) {
+      if (status) {
+        status.textContent = 'Please fill in your name, email address, and message.';
+        status.style.color = 'var(--accent)';
+        status.style.display = 'block';
+      }
+      return;
+    }
+
     btn.textContent = 'Sending…';
     btn.disabled    = true;
+    if (status) status.style.display = 'none';
 
     try {
       const res  = await fetch('/api/contact', {
@@ -329,27 +344,90 @@ function initContactForm() {
       });
       const data = await res.json();
 
-      form.reset();
-      btn.textContent = 'Message Sent ✓';
-
-      if (status) {
-        status.textContent = data.ok
-          ? "Thank you — we'll be in touch within 24 hours."
-          : (data.error || "Message sent.");
-        status.style.display = 'block';
+      if (data.ok) {
+        form.reset();
+        btn.textContent = 'Message Sent ✓';
+        if (status) {
+          status.textContent = "Thank you — we’ll be in touch within 24 hours.";
+          status.style.color = '';
+          status.style.display = 'block';
+        }
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled    = false;
+        if (status) {
+          status.textContent = data.error || 'Something went wrong. Please try again.';
+          status.style.color = 'var(--accent)';
+          status.style.display = 'block';
+        }
       }
     } catch (err) {
       btn.textContent = 'Send Message →';
       btn.disabled    = false;
       if (status) {
-        status.textContent = 'Something went wrong. Please try again or email us directly.';
+        status.textContent = 'Something went wrong. Please try again or contact us directly.';
+        status.style.color = 'var(--accent)';
         status.style.display = 'block';
       }
     }
+  });
+}
 
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.disabled    = false;
-    }, 10000);
+/* ── IMAGE LIGHTBOX ────────────────────────────────────────── */
+
+function initLightbox(imgs) {
+  if (!imgs.length) return;
+
+  /* Build overlay once */
+  const lb = document.createElement('div');
+  lb.id = 'proj-lightbox';
+  lb.innerHTML = `
+    <div class="lb-backdrop"></div>
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-arrow lb-prev" aria-label="Previous">&#8592;</button>
+    <button class="lb-arrow lb-next" aria-label="Next">&#8594;</button>
+    <div class="lb-img-wrap"><img class="lb-img" src="" alt="" /></div>
+    <p class="lb-counter"></p>`;
+  document.body.appendChild(lb);
+
+  const lbImg     = lb.querySelector('.lb-img');
+  const lbCounter = lb.querySelector('.lb-counter');
+  const lbClose   = lb.querySelector('.lb-close');
+  const lbPrev    = lb.querySelector('.lb-prev');
+  const lbNext    = lb.querySelector('.lb-next');
+  let   current   = 0;
+
+  function show(i) {
+    current = i;
+    lbImg.src = imgs[i].src;
+    lbImg.alt = imgs[i].alt;
+    lbCounter.textContent = `${i + 1} / ${imgs.length}`;
+    lbPrev.style.opacity = i === 0 ? '.25' : '1';
+    lbNext.style.opacity = i === imgs.length - 1 ? '.25' : '1';
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  lbClose.addEventListener('click', close);
+  lb.querySelector('.lb-backdrop').addEventListener('click', close);
+  lbPrev.addEventListener('click', () => { if (current > 0) show(current - 1); });
+  lbNext.addEventListener('click', () => { if (current < imgs.length - 1) show(current + 1); });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowLeft')   { if (current > 0) show(current - 1); }
+    if (e.key === 'ArrowRight')  { if (current < imgs.length - 1) show(current + 1); }
+  });
+
+  /* Wire gallery thumbnails */
+  imgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => show(i));
   });
 }
