@@ -82,7 +82,7 @@
 
   <script>
     if (sessionStorage.getItem('voad_token')) {
-      location.href = 'dashboard.html';
+      location.href = '/admin/dashboard.html';
     }
 
     document.getElementById('login-form').addEventListener('submit', async (e) => {
@@ -105,7 +105,7 @@
 
         if (data.token) {
           sessionStorage.setItem('voad_token', data.token);
-          location.href = 'dashboard.html';
+          location.href = '/admin/dashboard.html';
         } else {
           err.style.display = 'block';
           btn.textContent = 'Login →';

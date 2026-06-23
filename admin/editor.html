@@ -125,7 +125,7 @@
   <div class="topbar">
     <div class="topbar-logo">VOAD Admin</div>
     <div class="topbar-actions">
-      <a href="dashboard.html" class="btn btn-ghost">← Dashboard</a>
+      <a href="/admin/dashboard.html" class="btn btn-ghost">← Dashboard</a>
       <button class="btn btn-primary" id="save-btn">Save Project</button>
     </div>
   </div>
@@ -245,7 +245,7 @@
 
   <script>
     const token = sessionStorage.getItem('voad_token');
-    if (!token) location.href = 'index.html';
+    if (!token) location.href = '/admin/index.html';
 
     /* ── STATE ── */
     let cloudName    = '';
@@ -479,7 +479,7 @@
 
         if (data.ok) {
           showStatus('Project saved! Redirecting to dashboard…');
-          setTimeout(() => { location.href = 'dashboard.html'; }, 1800);
+          setTimeout(() => { location.href = '/admin/dashboard.html'; }, 1800);
         } else {
           showStatus(data.error || 'Save failed.', true);
           btn.textContent = 'Save Project';

@@ -70,8 +70,8 @@
   <div class="topbar">
     <span class="topbar-logo">V O A D &nbsp;— Admin</span>
     <div class="topbar-actions">
-      <a href="dashboard.html" class="btn btn-ghost">← Dashboard</a>
-      <a href="../index.html" target="_blank" class="btn btn-ghost">View Site</a>
+      <a href="/admin/dashboard.html" class="btn btn-ghost">← Dashboard</a>
+      <a href="/index.html" target="_blank" class="btn btn-ghost">View Site</a>
     </div>
   </div>
 
@@ -259,7 +259,7 @@
 
     /* ── AUTH ── */
     const token = sessionStorage.getItem('voad_token');
-    if (!token) { location.href = 'index.html'; }
+    if (!token) { location.href = '/admin/index.html'; }
 
     /* ── LOAD CURRENT SETTINGS ── */
     async function loadSettings() {
