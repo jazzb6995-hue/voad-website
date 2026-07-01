@@ -9,8 +9,8 @@
   var lenis;
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
-      duration: 1.2,
-      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      duration: 0.7,
+      easing: function (t) { return 1 - Math.pow(1 - t, 3); },
       smoothTouch: false,
     });
 
@@ -129,30 +129,7 @@
     if (hint)    tl.fromTo(hint,    { opacity: 0 },        { opacity: 1, duration: 0.6 },        0.9);
   }
 
-  /* ── 6. SCROLL REVEAL UPGRADE (GSAP) ─────────────────── */
-  function initScrollReveal() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      var delay = el.classList.contains('delay-3') ? 0.36
-                : el.classList.contains('delay-2') ? 0.24
-                : el.classList.contains('delay-1') ? 0.12
-                : 0;
-
-      gsap.fromTo(el,
-        { opacity: 0, y: 28 },
-        {
-          opacity: 1, y: 0,
-          duration: 0.9, delay: delay,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-          onStart: function () { el.classList.add('visible'); },
-        }
-      );
-    });
-  }
-
-  /* ── 7. COUNTER ANIMATION ────────────────────────────── */
+  /* ── 6. COUNTER ANIMATION ────────────────────────────── */
   function initCounters() {
     var stats = document.querySelectorAll('.stat-num');
     if (!stats.length) return;
@@ -252,7 +229,6 @@
     initGlow();
     initMagnetic();
     initTilt();
-    initScrollReveal();
     onLoaderDone(initHeroText);
   }
 
