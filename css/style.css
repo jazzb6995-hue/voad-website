@@ -1037,3 +1037,71 @@ a.footer-contact-item:hover { color: var(--accent); }
   .hero-content h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .scroll-hint { display: none; }
 }
+
+/* ── NAV LIGHT (transparent over hero) ──────────────────── */
+nav.light {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  transition: padding var(--ease), box-shadow var(--ease), background .5s ease, border-color .5s ease;
+}
+nav.light .nav-logo-mark,
+nav.light .nav-links a   { color: rgba(255,255,255,.9); }
+nav.light .nav-logo-sub  { color: rgba(255,255,255,.42); }
+nav.light .hamburger span { background: rgba(255,255,255,.9); }
+nav.light .nav-links a::after { background: rgba(255,255,255,.7); }
+
+/* ── CUSTOM CURSOR ───────────────────────────────────────── */
+.has-vcursor,
+.has-vcursor * { cursor: none !important; }
+
+.vcursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.65;
+  transition: width .25s ease, height .25s ease, opacity .25s ease, border-color .25s ease;
+  will-change: transform;
+}
+.vcursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+.vcursor-ring.expanded {
+  width: 60px; height: 60px;
+  border-color: rgba(184,92,56,.35);
+  opacity: 0.4;
+}
+
+/* ── HERO LINE TEXT REVEAL ───────────────────────────────── */
+.vhero-line  { display: block; overflow: hidden; line-height: 1.08; }
+.vhero-inner { display: block; }
+
+/* ── MOUSE GLOW (dark sections) ──────────────────────────── */
+.section-dark {
+  --gx: -200px;
+  --gy: -200px;
+  background: radial-gradient(
+    700px circle at var(--gx) var(--gy),
+    rgba(184,92,56,.08) 0%,
+    transparent 65%
+  ), #111111;
+  transition: background .15s ease;
+}
+.section-dark.glow-on {
+  background: radial-gradient(
+    700px circle at var(--gx) var(--gy),
+    rgba(184,92,56,.11) 0%,
+    transparent 65%
+  ), #111111;
+}
