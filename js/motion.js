@@ -5,25 +5,10 @@
 (function () {
   'use strict';
 
-  /* ── 1. LENIS SMOOTH SCROLLING ───────────────────────── */
-  var lenis;
-  if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({
-      duration: 0.7,
-      easing: function (t) { return 1 - Math.pow(1 - t, 3); },
-      smoothTouch: false,
-    });
-
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
-    }
-  } else if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  /* ── 1. GSAP SCROLLTRIGGER (native scroll, no Lenis) ─── */
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+    gsap.ticker.lagSmoothing(0);
   }
 
   /* ── WAIT FOR LOADER TO HIDE ─────────────────────────── */
