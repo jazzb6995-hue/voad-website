@@ -99,7 +99,12 @@ nav.scrolled {
   box-shadow: 0 4px 32px rgba(0,0,0,.32);
 }
 
-.nav-logo { text-decoration: none; }
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
 .nav-logo-mark {
   font-size: 1.35rem;
   font-weight: 600;
