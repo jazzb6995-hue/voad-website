@@ -937,7 +937,7 @@ footer {
   font-size: .6rem;
   letter-spacing: .28em;
   text-transform: uppercase;
-  color: rgba(248,247,244,.32);
+  color: var(--accent);
   margin-bottom: 1.5rem;
 }
 
