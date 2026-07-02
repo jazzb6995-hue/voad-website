@@ -1,5 +1,5 @@
 /* ============================================================
-   VOAD — Architecture & Interiors · main.js
+   VOAD, Architecture & Interiors · main.js
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

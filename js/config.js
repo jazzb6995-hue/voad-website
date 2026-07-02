@@ -1,9 +1,9 @@
 /* ============================================================
-   VOAD — Site Configuration
+   VOAD, Site Configuration
    ============================================================ */
 
 const VOAD_CONFIG = {
-  /* PHP API endpoint — works automatically when hosted on GoDaddy */
+  /* PHP API endpoint, works automatically when hosted on GoDaddy */
   apiUrl: '/api/projects',
 
   /* Contact form endpoint */

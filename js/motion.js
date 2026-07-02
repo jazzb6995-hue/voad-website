@@ -1,5 +1,5 @@
 /* ============================================================
-   VOAD — Motion Layer
+   VOAD, Motion Layer
    Lenis smooth scroll · Custom cursor · GSAP animations
    ============================================================ */
 (function () {

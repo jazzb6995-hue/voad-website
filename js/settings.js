@@ -1,5 +1,5 @@
 /* ============================================================
-   VOAD — settings.js
+   VOAD, settings.js
    Fetches site image settings from /api/settings and applies
    them to elements with data-setting attributes.
    ============================================================ */

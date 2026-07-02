@@ -1,5 +1,5 @@
 /* ============================================================
-   VOAD — render.js
+   VOAD, render.js
    Handles: data fetching, project cards, filter, detail page,
             contact form submission.
    ============================================================ */
@@ -40,7 +40,7 @@ async function fetchFromServer() {
     const data = await res.json();
     if (Array.isArray(data) && data.length) return normalizeProjects(data);
   } catch (e) {
-    /* Server not available — use local data silently */
+    /* Server not available, use local data silently */
   }
   return null;
 }
@@ -194,7 +194,7 @@ function buildGalleryMarkup(project) {
       <div class="proj-gallery-grid">
         ${imgs.map((src, i) => `
           <div class="proj-gallery-item">
-            <img src="${src}" alt="${project.title} — view ${i + 1}" loading="lazy" />
+            <img src="${src}" alt="${project.title}, view ${i + 1}" loading="lazy" />
           </div>`).join('')}
       </div>
     </section>`;
@@ -229,7 +229,7 @@ async function initProject() {
     return;
   }
 
-  document.title = `${project.title} — VOAD Architecture & Interiors`;
+  document.title = `${project.title}, VOAD Architecture & Interiors`;
 
   const idx      = projects.indexOf(project);
   const prev     = projects[(idx - 1 + projects.length) % projects.length];
@@ -322,7 +322,7 @@ function initContactForm() {
       message:     form.querySelector('#message')?.value.trim()  || ''
     };
 
-    /* Client-side validation — stop before any fetch */
+    /* Client-side validation, stop before any fetch */
     if (!payload.name || !payload.email || !payload.message) {
       if (status) {
         status.textContent = 'Please fill in your name, email address, and message.';
@@ -348,7 +348,7 @@ function initContactForm() {
         form.reset();
         btn.textContent = 'Message Sent ✓';
         if (status) {
-          status.textContent = "Thank you — we’ll be in touch within 24 hours.";
+          status.textContent = "Thank you, we’ll be in touch within 24 hours.";
           status.style.color = '';
           status.style.display = 'block';
         }

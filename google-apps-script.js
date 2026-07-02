@@ -1,5 +1,5 @@
 /**
- * VOAD — Google Apps Script
+ * VOAD, Google Apps Script
  * ─────────────────────────────────────────────────────────────
  * INSTRUCTIONS:
  *  1. Go to script.google.com → New Project
@@ -35,7 +35,7 @@ function doPost(e) {
   try {
     const body = JSON.parse(e.postData.contents);
     if (body.type === 'contact') saveContact(body);
-  } catch (_) { /* silent — no-cors requests have no response */ }
+  } catch (_) { /* silent, no-cors requests have no response */ }
   return respond({ ok: true });
 }
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setup Guide — VOAD</title>
+  <title>Setup Guide | VOAD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
@@ -143,11 +143,11 @@
 
   <div class="guide-intro">
     <h1>Three Things to Set Up</h1>
-    <p>This guide walks you through the three setup steps: creating your Google Sheet (your CMS), connecting it to the website, and uploading to GoDaddy. Once done, you add or remove projects simply by editing a spreadsheet — no code needed.</p>
+    <p>This guide walks you through the three setup steps: creating your Google Sheet (your CMS), connecting it to the website, and uploading to GoDaddy. Once done, you add or remove projects simply by editing a spreadsheet, no code needed.</p>
   </div>
 
   <!-- ════════════════════════════════════════════════════════ -->
-  <!-- PHASE A — GOOGLE SHEET                                  -->
+  <!-- PHASE A, GOOGLE SHEET                                  -->
   <!-- ════════════════════════════════════════════════════════ -->
 
   <div class="phase">
@@ -168,7 +168,7 @@
     <div class="step">
       <span class="step-num">2</span>
       <div>
-        <h3>Set up the Projects sheet — paste these column headers in Row 1</h3>
+        <h3>Set up the Projects sheet, paste these column headers in Row 1</h3>
         <p>Click the tab at the bottom named <strong>Sheet1</strong> and rename it to <code>Projects</code>. Then paste these exact headers into row 1 (one per cell, A1 through P1):</p>
         <code class="code-block">id	title	category	tagline	shortDesc	longDesc	year	location	area	scope	cover	gallery1	gallery2	gallery3	gallery4	featured</code>
         <p>Each column explained:</p>
@@ -188,7 +188,7 @@
           <tr><td class="col-name">gallery1–4</td><td>Full URLs of up to 4 gallery images</td><td>https://…</td></tr>
           <tr><td class="col-name">featured</td><td>Show on homepage? Type <code>true</code> or <code>false</code></td><td>true</td></tr>
         </table>
-        <div class="tip"><strong>Tip:</strong> Add one row per project. The website reads every row automatically. To add a project — add a row. To delete — delete the row. To update — edit the cell.</div>
+        <div class="tip"><strong>Tip:</strong> Add one row per project. The website reads every row automatically. To add a project, add a row. To delete, delete the row. To update, edit the cell.</div>
       </div>
     </div>
 
@@ -204,7 +204,7 @@
   </div>
 
   <!-- ════════════════════════════════════════════════════════ -->
-  <!-- PHASE B — APPS SCRIPT                                   -->
+  <!-- PHASE B, APPS SCRIPT                                   -->
   <!-- ════════════════════════════════════════════════════════ -->
 
   <div class="phase">
@@ -239,7 +239,7 @@
 Description:       VOAD CMS
 Execute as:        Me (your Google account)
 Who has access:    Anyone</code>
-        <p>Click <strong>Deploy</strong>. Google will ask you to authorise — click through and allow. You will see a URL ending in <code>/exec</code>. <strong>Copy that URL.</strong></p>
+        <p>Click <strong>Deploy</strong>. Google will ask you to authorise, click through and allow. You will see a URL ending in <code>/exec</code>. <strong>Copy that URL.</strong></p>
       </div>
     </div>
 
@@ -261,15 +261,15 @@ Who has access:    Anyone</code>
       <span class="step-num">8</span>
       <div>
         <h3>Test the contact form</h3>
-        <p>Fill in the contact form on <code>contact.html</code> and submit it. Wait 10 seconds, then check your Google Sheet — a new tab named <strong>Contact</strong> should appear automatically with your test submission.</p>
-        <div class="tip"><strong>Note:</strong> Because the form uses a privacy-safe "no-cors" request, the browser can't confirm receipt — but the data is always written. The "Thank you" message shows immediately after submission.</div>
+        <p>Fill in the contact form on <code>contact.html</code> and submit it. Wait 10 seconds, then check your Google Sheet, a new tab named <strong>Contact</strong> should appear automatically with your test submission.</p>
+        <div class="tip"><strong>Note:</strong> Because the form uses a privacy-safe "no-cors" request, the browser can't confirm receipt, but the data is always written. The "Thank you" message shows immediately after submission.</div>
       </div>
     </div>
 
   </div>
 
   <!-- ════════════════════════════════════════════════════════ -->
-  <!-- PHASE C — GODADDY DEPLOYMENT                            -->
+  <!-- PHASE C, GODADDY DEPLOYMENT                            -->
   <!-- ════════════════════════════════════════════════════════ -->
 
   <div class="phase">
@@ -291,7 +291,7 @@ Who has access:    Anyone</code>
       <span class="step-num">10</span>
       <div>
         <h3>Open File Manager</h3>
-        <p>In cPanel, find and click <strong>File Manager</strong>. Navigate to the <code>public_html</code> folder — this is the root of your website. Everything you upload here will be live at your domain.</p>
+        <p>In cPanel, find and click <strong>File Manager</strong>. Navigate to the <code>public_html</code> folder, this is the root of your website. Everything you upload here will be live at your domain.</p>
       </div>
     </div>
 
@@ -309,7 +309,7 @@ setup-guide.html       ← optional, can delete after setup
 google-apps-script.js  ← optional, can delete after setup
 css/
 js/</code>
-        <p>In File Manager, click <strong>Upload</strong> and drag these in. Make sure the folder structure is preserved — <code>css/</code> and <code>js/</code> must remain as subfolders.</p>
+        <p>In File Manager, click <strong>Upload</strong> and drag these in. Make sure the folder structure is preserved, <code>css/</code> and <code>js/</code> must remain as subfolders.</p>
         <div class="tip"><strong>Tip:</strong> You can also use FTP (FileZilla) for faster bulk uploads. GoDaddy provides FTP credentials under cPanel → FTP Accounts.</div>
       </div>
     </div>
@@ -336,7 +336,7 @@ js/</code>
   <div class="cms-grid">
     <div class="cms-card">
       <h4>Add a new project</h4>
-      <p>Open your Google Sheet → <strong>Projects</strong> tab. Add a new row at the bottom with all the columns filled in. The project appears on your website within seconds — no upload needed.</p>
+      <p>Open your Google Sheet → <strong>Projects</strong> tab. Add a new row at the bottom with all the columns filled in. The project appears on your website within seconds, no upload needed.</p>
     </div>
     <div class="cms-card">
       <h4>Remove a project</h4>

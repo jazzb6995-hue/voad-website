@@ -14,7 +14,7 @@ module.exports = async function handler(req, res) {
 
   const html = `
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
-      <h2 style="color:#B85C38;margin-bottom:4px;">New Enquiry — VOAD Architecture</h2>
+      <h2 style="color:#B85C38;margin-bottom:4px;">New Enquiry, VOAD Architecture</h2>
       <hr style="border:1px solid #eee;margin:16px 0;" />
       <table style="width:100%;border-collapse:collapse;">
         <tr><td style="padding:6px 0;color:#666;width:140px;">Name</td><td style="padding:6px 0;"><strong>${name}</strong></td></tr>
@@ -36,7 +36,7 @@ module.exports = async function handler(req, res) {
       from:    'VOAD Website <onboarding@resend.dev>',
       to:      toEmail,
       replyTo: email,
-      subject: `New Enquiry from ${name} — VOAD`,
+      subject: `New Enquiry from ${name}, VOAD`,
       html
     });
     if (error) {
