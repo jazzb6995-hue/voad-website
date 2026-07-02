@@ -88,15 +88,15 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 4rem;
-  background: rgba(248,247,244,0.97);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-  transition: padding var(--ease), box-shadow var(--ease);
+  background: rgba(14, 13, 11, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: padding var(--ease), box-shadow var(--ease), background .4s ease, border-color .4s ease;
 }
 nav.scrolled {
-  padding: 1rem 4rem;
-  box-shadow: 0 2px 20px rgba(0,0,0,.06);
+  padding: 0.95rem 4rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,.32);
 }
 
 .nav-logo { text-decoration: none; }
@@ -105,14 +105,14 @@ nav.scrolled {
   font-weight: 600;
   letter-spacing: .45em;
   line-height: 1;
-  color: var(--text);
+  color: rgba(255,255,255,0.92);
   transition: color var(--ease);
 }
 .nav-logo-sub {
   font-size: .56rem;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--muted-lt);
+  color: rgba(255,255,255,0.32);
   margin-top: 3px;
   transition: color var(--ease);
 }
@@ -128,10 +128,12 @@ nav.scrolled {
   letter-spacing: .1em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--text);
+  color: rgba(255,255,255,0.65);
   position: relative;
   transition: color var(--ease);
 }
+.nav-links a:hover { color: rgba(255,255,255,0.95); }
+.nav-links a.active { color: rgba(255,255,255,0.95); }
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -158,7 +160,7 @@ nav.scrolled {
   display: block;
   width: 24px;
   height: 1.5px;
-  background: var(--text);
+  background: rgba(255,255,255,0.85);
   transition: var(--ease);
 }
 
@@ -209,7 +211,7 @@ nav.scrolled {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center 65%;
   transform: scale(1.06);
   animation: zoomIn 9s ease forwards;
 }
@@ -1040,13 +1042,7 @@ nav.light {
   background: transparent;
   border-bottom-color: transparent;
   box-shadow: none;
-  transition: padding var(--ease), box-shadow var(--ease), background .5s ease, border-color .5s ease;
 }
-nav.light .nav-logo-mark,
-nav.light .nav-links a   { color: rgba(255,255,255,.9); }
-nav.light .nav-logo-sub  { color: rgba(255,255,255,.42); }
-nav.light .hamburger span { background: rgba(255,255,255,.9); }
-nav.light .nav-links a::after { background: rgba(255,255,255,.7); }
 
 /* ── CUSTOM CURSOR ───────────────────────────────────────── */
 .has-vcursor,
