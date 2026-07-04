@@ -90,9 +90,9 @@ async function initBlogPost() {
       <div class="post-hero" style="background-image:url('${post.coverImage}');">
         <div class="post-hero-overlay"></div>
         <div class="post-hero-inner">
-          <p class="post-category reveal">${post.category}</p>
-          <h1 class="post-title reveal delay-1">${post.title}</h1>
-          <div class="post-meta reveal delay-2">
+          <p class="post-category">${post.category}</p>
+          <h1 class="post-title">${post.title}</h1>
+          <div class="post-meta">
             <span>${formatDate(post.date)}</span>
             <span class="post-meta-dot">&middot;</span>
             <span>${post.readTime}</span>
