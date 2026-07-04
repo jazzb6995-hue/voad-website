@@ -50,7 +50,7 @@ async function fetchFromServer() {
 function cardHTML(project) {
   const catLabel = CATEGORY_LABELS[project.category] || project.category;
   return `
-    <a href="project.html?id=${project.id}"
+    <a href="/project?id=${project.id}"
        class="proj-card"
        data-category="${project.category}">
       <div class="proj-card-img-wrap">
@@ -223,13 +223,27 @@ async function initProject() {
         <div>
           <p class="section-label">404</p>
           <h2 class="section-heading">Project not found</h2>
-          <a href="portfolio.html" class="about-cta" style="margin-top:2rem;display:inline-flex;">← Back to Portfolio</a>
+          <a href="/portfolio" class="about-cta" style="margin-top:2rem;display:inline-flex;">← Back to Portfolio</a>
         </div>
       </section>`;
     return;
   }
 
-  document.title = `${project.title}, VOAD Architecture & Interiors`;
+  document.title = `${project.title} | VOAD Architecture & Interiors, Rajkot`;
+
+  /* Update SEO meta tags dynamically */
+  const canonicalEl = document.getElementById('page-canonical');
+  if (canonicalEl) canonicalEl.href = `https://www.voad.in/project?id=${id}`;
+  const descEl = document.getElementById('page-description');
+  const desc = project.shortDesc || `${project.title} by VOAD Architecture & Interiors, Rajkot. ${project.scope || ''} project in ${project.location || 'India'}, ${project.year || ''}.`.trim();
+  if (descEl) descEl.content = desc.slice(0, 160);
+  const coverImg = project.cover || '';
+  ['og-title', 'tw-title'].forEach(id => { const el = document.getElementById(id); if (el) el.content = document.title; });
+  ['og-description', 'tw-description'].forEach(id => { const el = document.getElementById(id); if (el) el.content = desc.slice(0, 160); });
+  const ogUrl = document.getElementById('og-url'); if (ogUrl) ogUrl.content = `https://www.voad.in/project?id=${id}`;
+  if (coverImg) {
+    ['og-image', 'tw-image'].forEach(id => { const el = document.getElementById(id); if (el) el.content = coverImg; });
+  }
 
   const idx      = projects.indexOf(project);
   const prev     = projects[(idx - 1 + projects.length) % projects.length];
@@ -248,7 +262,7 @@ async function initProject() {
       <div class="proj-hero-bg" style="background-image:url('${project.cover}');"></div>
       <div class="proj-hero-overlay"></div>
       <div class="proj-hero-content">
-        <a href="portfolio.html" class="proj-back">← All Projects</a>
+        <a href="/portfolio" class="proj-back">← All Projects</a>
         <p class="proj-hero-cat">${catLabel}</p>
         <h1>${project.title}</h1>
         <p class="proj-hero-tagline">${project.tagline}</p>
@@ -285,12 +299,12 @@ async function initProject() {
     ${buildGalleryMarkup(project)}
 
     <nav class="proj-nav-bar" aria-label="Project navigation">
-      <a href="project.html?id=${prev.id}" class="proj-nav-link">
+      <a href="/project?id=${prev.id}" class="proj-nav-link">
         <span class="proj-nav-dir">← Previous</span>
         <span class="proj-nav-name">${prev.title}</span>
       </a>
-      <a href="portfolio.html" class="proj-nav-all">All Projects</a>
-      <a href="project.html?id=${next.id}" class="proj-nav-link proj-nav-link--right">
+      <a href="/portfolio" class="proj-nav-all">All Projects</a>
+      <a href="/project?id=${next.id}" class="proj-nav-link proj-nav-link--right">
         <span class="proj-nav-dir">Next →</span>
         <span class="proj-nav-name">${next.title}</span>
       </a>
