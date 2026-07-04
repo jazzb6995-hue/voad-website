@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Editor | VOAD Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #F8F7F4; color: #0D0D0D; min-height: 100vh; }
+
+    /* ── TOP BAR ── */
+    .topbar { background: #0D0D0D; color: #fff; padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .topbar-logo { font-weight: 700; font-size: 18px; letter-spacing: .1em; }
+    .topbar-actions { display: flex; gap: 12px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 7px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: background .2s; text-decoration: none; }
+    .btn-primary { background: #B85C38; color: #fff; }
+    .btn-primary:hover { background: #a04e2e; }
+    .btn-primary:disabled { background: #ccc; cursor: not-allowed; }
+    .btn-ghost { background: transparent; color: #aaa; border: 1px solid #333; }
+    .btn-ghost:hover { color: #fff; border-color: #666; }
+
+    /* ── LAYOUT ── */
+    main { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 32px; }
+
+    /* ── CARDS ── */
+    .card { background: #fff; border: 1px solid #e8e4df; border-radius: 12px; padding: 28px; margin-bottom: 24px; }
+    .card-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #B85C38; margin-bottom: 20px; }
+
+    /* ── FIELDS ── */
+    .field { margin-bottom: 18px; }
+    .field:last-child { margin-bottom: 0; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; }
+    input[type="text"], input[type="date"], input[type="url"], select, textarea {
+      width: 100%; padding: 10px 13px; border: 1px solid #ddd; border-radius: 8px;
+      font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s; background: #fff;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #B85C38; }
+    textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .hint { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+    /* ── TOGGLE ── */
+    .toggle-wrap { display: flex; align-items: center; gap: 10px; }
+    .toggle { position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; inset: 0; background: #ddd; border-radius: 24px; cursor: pointer; transition: background .2s; }
+    .toggle-slider::before { content: ''; position: absolute; width: 18px; height: 18px; background: #fff; border-radius: 50%; bottom: 3px; left: 3px; transition: transform .2s; }
+    .toggle input:checked + .toggle-slider { background: #B85C38; }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(18px); }
+
+    /* ── COVER IMAGE SECTION ── */
+    .cover-section { margin-bottom: 0; }
+    .cover-preview-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/7;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f3f1ee;
+      margin-bottom: 16px;
+      border: 2px dashed #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cover-preview-wrap.has-image { border-style: solid; border-color: #e8e4df; }
+    #cover-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    #cover-preview-img.visible { display: block; }
+    .cover-placeholder-text {
+      text-align: center;
+      color: #bbb;
+      font-size: 14px;
+      padding: 20px;
+    }
+    .cover-placeholder-text strong { display: block; font-size: 16px; color: #ccc; margin-bottom: 6px; }
+    .cover-controls { display: flex; gap: 10px; align-items: flex-start; }
+    .cover-controls .field { flex: 1; margin-bottom: 0; }
+    .upload-btn-wrap { flex-shrink: 0; padding-top: 22px; }
+    .upload-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      cursor: pointer; background: #f3f1ee; color: #555; border: 1px solid #ddd;
+      transition: background .2s, border-color .2s; white-space: nowrap;
+    }
+    .upload-label:hover { background: #e8e4df; border-color: #B85C38; }
+    #cover-file-input { display: none; }
+    .upload-status { font-size: 12px; color: #B85C38; margin-top: 6px; text-align: center; min-height: 18px; }
+
+    /* ── CONTENT EDITOR ── */
+    #content-textarea { min-height: 320px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; }
+
+    /* ── STATUS BAR ── */
+    .save-status { padding: 12px 16px; border-radius: 8px; font-size: 14px; margin-top: 16px; display: none; }
+    .save-status.success { background: #e8f4ea; color: #2e7d32; }
+    .save-status.error   { background: #fce4ec; color: #c62828; }
+
+    @media (max-width: 600px) {
+      .topbar { padding: 0 16px; }
+      main { padding: 24px 16px 60px; }
+      .field-row { grid-template-columns: 1fr; }
+      .cover-controls { flex-direction: column; }
+      .upload-btn-wrap { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-logo">VOAD Admin</div>
+    <div class="topbar-actions">
+      <a href="/admin/blogs.html" class="btn btn-ghost">All Posts</a>
+      <a href="/admin/dashboard.html" class="btn btn-ghost">Projects</a>
+      <button class="btn btn-ghost" id="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <main>
+    <h1 id="editor-heading">New Blog Post</h1>
+
+    <!-- ── COVER IMAGE ── -->
+    <div class="card">
+      <p class="card-title">Cover Image</p>
+
+      <div class="cover-preview-wrap" id="cover-preview-wrap">
+        <img id="cover-preview-img" alt="Cover image preview" />
+        <div class="cover-placeholder-text" id="cover-placeholder">
+          <strong>No cover image yet</strong>
+          Paste a URL below or upload a file
+        </div>
+      </div>
+
+      <div class="cover-controls">
+        <div class="field">
+          <label for="cover-url-input">Image URL</label>
+          <input type="url" id="cover-url-input" placeholder="https://images.unsplash.com/..." />
+          <p class="hint">Paste any image URL. Changes appear in the preview above instantly.</p>
+        </div>
+        <div class="upload-btn-wrap">
+          <label class="upload-label" for="cover-file-input">
+            &#8593; Upload File
+          </label>
+          <input type="file" id="cover-file-input" accept="image/*" />
+          <p class="upload-status" id="upload-status"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── POST DETAILS ── -->
+    <div class="card">
+      <p class="card-title">Post Details</p>
+
+      <div class="field">
+        <label for="post-title">Title *</label>
+        <input type="text" id="post-title" placeholder="e.g. 5 Things to Know Before Hiring an Interior Designer" />
+      </div>
+
+      <div class="field">
+        <label for="post-id">URL Slug *</label>
+        <input type="text" id="post-id" placeholder="e.g. hiring-interior-designer-rajkot" />
+        <p class="hint">Lowercase letters and hyphens only. Auto-filled from title. URL will be: /blog-post?id=your-slug</p>
+      </div>
+
+      <div class="field">
+        <label for="post-excerpt">Excerpt *</label>
+        <textarea id="post-excerpt" rows="3" placeholder="A short description shown on the blog listing page (2-3 sentences)."></textarea>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="post-category">Category</label>
+          <select id="post-category">
+            <option value="Interior Design">Interior Design</option>
+            <option value="Residential">Residential</option>
+            <option value="Heritage">Heritage</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Turnkey">Turnkey</option>
+            <option value="Architecture">Architecture</option>
+            <option value="Tips & Guides">Tips &amp; Guides</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="post-date">Date</label>
+          <input type="date" id="post-date" />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="post-read-time">Read Time</label>
+          <input type="text" id="post-read-time" placeholder="e.g. 5 min read" />
+        </div>
+        <div class="field">
+          <label for="post-author">Author</label>
+          <input type="text" id="post-author" value="Ar. Vivek Bosmiya" />
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="toggle-wrap">
+          <label class="toggle">
+            <input type="checkbox" id="post-published" checked />
+            <span class="toggle-slider"></span>
+          </label>
+          <span style="font-size:14px;font-weight:600;">Published</span>
+          <span style="font-size:13px;color:#aaa;">(toggle off to save as draft)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTENT ── -->
+    <div class="card">
+      <p class="card-title">Article Content (HTML)</p>
+      <div class="field">
+        <textarea id="content-textarea" placeholder="Write your article content here using HTML tags.
+
+Example:
+&lt;p&gt;Your paragraph text here.&lt;/p&gt;
+
+&lt;h2&gt;Section Heading&lt;/h2&gt;
+&lt;p&gt;More text.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;List item one&lt;/li&gt;
+  &lt;li&gt;List item two&lt;/li&gt;
+&lt;/ul&gt;
+
+To link to other pages: &lt;a href=&quot;/contact&quot;&gt;Contact us&lt;/a&gt;"></textarea>
+        <p class="hint">Write content using HTML. Use &lt;p&gt; for paragraphs, &lt;h2&gt; for headings, &lt;ul&gt;&lt;li&gt; for lists, &lt;a href=&quot;/page&quot;&gt; for links.</p>
+      </div>
+    </div>
+
+    <!-- ── SAVE ── -->
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button class="btn btn-primary" id="save-btn" style="padding:12px 28px;font-size:15px;">Save Post</button>
+      <a href="/admin/blogs.html" class="btn btn-ghost">Cancel</a>
+    </div>
+    <div class="save-status" id="save-status"></div>
+  </main>
+
+  <script>
+    const token = sessionStorage.getItem('voad_token');
+    if (!token) location.href = '/admin/index.html';
+
+    /* ── Load Cloudinary config ── */
+    let cloudName = '', uploadPreset = '';
+    async function loadConfig() {
+      try {
+        const res  = await fetch('/api/config');
+        const conf = await res.json();
+        cloudName    = conf.cloudName    || '';
+        uploadPreset = conf.uploadPreset || '';
+      } catch { /* Cloudinary upload will be skipped if config missing */ }
+    }
+    loadConfig();
+
+    /* ── Cover image preview via URL ── */
+    const coverUrlInput  = document.getElementById('cover-url-input');
+    const coverPreviewImg = document.getElementById('cover-preview-img');
+    const coverPlaceholder = document.getElementById('cover-placeholder');
+    const coverWrap      = document.getElementById('cover-preview-wrap');
+
+    function updateCoverPreview(url) {
+      if (!url) {
+        coverPreviewImg.classList.remove('visible');
+        coverPlaceholder.style.display = '';
+        coverWrap.classList.remove('has-image');
+        return;
+      }
+      coverPreviewImg.src = url;
+      coverPreviewImg.onload = () => {
+        coverPreviewImg.classList.add('visible');
+        coverPlaceholder.style.display = 'none';
+        coverWrap.classList.add('has-image');
+      };
+      coverPreviewImg.onerror = () => {
+        coverPreviewImg.classList.remove('visible');
+        coverPlaceholder.style.display = '';
+        coverWrap.classList.remove('has-image');
+      };
+    }
+
+    coverUrlInput.addEventListener('input', () => updateCoverPreview(coverUrlInput.value.trim()));
+
+    /* ── Cloudinary upload ── */
+    document.getElementById('cover-file-input').addEventListener('change', async function () {
+      const file = this.files[0];
+      if (!file) return;
+      const status = document.getElementById('upload-status');
+
+      if (!cloudName || !uploadPreset) {
+        status.textContent = 'Cloudinary not configured. Paste a URL instead.';
+        return;
+      }
+
+      status.textContent = 'Uploading...';
+      const fd = new FormData();
+      fd.append('file', file);
+      fd.append('upload_preset', uploadPreset);
+
+      try {
+        const res  = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.secure_url) {
+          coverUrlInput.value = data.secure_url;
+          updateCoverPreview(data.secure_url);
+          status.textContent = 'Uploaded successfully.';
+          setTimeout(() => { status.textContent = ''; }, 3000);
+        } else {
+          status.textContent = 'Upload failed. Try pasting a URL.';
+        }
+      } catch {
+        status.textContent = 'Upload failed. Check your connection.';
+      }
+    });
+
+    /* ── Auto-generate slug from title ── */
+    const titleInput = document.getElementById('post-title');
+    const idInput    = document.getElementById('post-id');
+    let slugManuallyEdited = false;
+
+    titleInput.addEventListener('input', () => {
+      if (!slugManuallyEdited) {
+        idInput.value = titleInput.value
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .trim()
+          .replace(/\s+/g, '-')
+          .substring(0, 80);
+      }
+    });
+    idInput.addEventListener('input', () => { slugManuallyEdited = true; });
+
+    /* ── Load existing post for editing ── */
+    const urlParams = new URLSearchParams(window.location.search);
+    const editId    = urlParams.get('id');
+
+    async function loadPost() {
+      if (!editId) {
+        document.getElementById('post-date').value = new Date().toISOString().split('T')[0];
+        return;
+      }
+      document.getElementById('editor-heading').textContent = 'Edit Blog Post';
+      try {
+        const res   = await fetch('/api/blogs');
+        const blogs = await res.json();
+        const post  = blogs.find(b => b.id === editId);
+        if (!post) { showStatus('Post not found.', true); return; }
+
+        titleInput.value  = post.title   || '';
+        idInput.value     = post.id      || '';
+        slugManuallyEdited = true;
+        document.getElementById('post-excerpt').value    = post.excerpt    || '';
+        document.getElementById('post-category').value   = post.category   || 'Interior Design';
+        document.getElementById('post-date').value       = post.date       || '';
+        document.getElementById('post-read-time').value  = post.readTime   || '';
+        document.getElementById('post-author').value     = post.author     || 'Ar. Vivek Bosmiya';
+        document.getElementById('post-published').checked = post.published !== false;
+        document.getElementById('content-textarea').value = post.content   || '';
+
+        if (post.coverImage) {
+          coverUrlInput.value = post.coverImage;
+          updateCoverPreview(post.coverImage);
+        }
+      } catch {
+        showStatus('Could not load post data.', true);
+      }
+    }
+
+    /* ── Save ── */
+    document.getElementById('save-btn').addEventListener('click', async () => {
+      const id      = idInput.value.trim();
+      const title   = titleInput.value.trim();
+      const content = document.getElementById('content-textarea').value.trim();
+
+      if (!id || !title || !content) {
+        showStatus('Title, slug, and content are required.', true);
+        return;
+      }
+
+      const post = {
+        id,
+        title,
+        excerpt:    document.getElementById('post-excerpt').value.trim(),
+        content,
+        coverImage: coverUrlInput.value.trim(),
+        author:     document.getElementById('post-author').value.trim() || 'Ar. Vivek Bosmiya',
+        date:       document.getElementById('post-date').value,
+        category:   document.getElementById('post-category').value,
+        readTime:   document.getElementById('post-read-time').value.trim(),
+        published:  document.getElementById('post-published').checked
+      };
+
+      const saveBtn = document.getElementById('save-btn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving...';
+
+      try {
+        const res  = await fetch('/api/blogs', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+          body:    JSON.stringify(post)
+        });
+        const data = await res.json();
+        if (data.ok) {
+          showStatus('Post saved successfully.', false);
+          setTimeout(() => { location.href = '/admin/blogs.html'; }, 1200);
+        } else {
+          showStatus(data.error || 'Save failed.', true);
+          saveBtn.disabled = false;
+          saveBtn.textContent = 'Save Post';
+        }
+      } catch {
+        showStatus('Save failed. Check your connection.', true);
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Post';
+      }
+    });
+
+    function showStatus(msg, isError) {
+      const el = document.getElementById('save-status');
+      el.textContent = msg;
+      el.className   = 'save-status ' + (isError ? 'error' : 'success');
+      el.style.display = 'block';
+      if (!isError) setTimeout(() => { el.style.display = 'none'; }, 4000);
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      sessionStorage.removeItem('voad_token');
+      location.href = '/admin/index.html';
+    });
+
+    loadPost();
+  </script>
+</body>
+</html>

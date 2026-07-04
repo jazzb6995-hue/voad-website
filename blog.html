@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Architecture &amp; Interior Design Portfolio | VOAD Rajkot</title>
-  <meta name="description" content="Browse VOAD's completed architecture and interior design projects in Rajkot, Gujarat. Residential homes, luxury interiors, heritage havelis, commercial offices and turnkey projects across India." />
-  <meta name="keywords" content="architecture portfolio Rajkot, interior design portfolio Gujarat, residential architecture projects, heritage haveli design, commercial interior Rajkot, VOAD architecture works" />
+  <title>Journal | Architecture &amp; Interior Design Insights | VOAD Rajkot</title>
+  <meta name="description" content="Design insights, project guides, and architecture expertise from VOAD, Rajkot. Articles on interior design, heritage restoration, residential architecture, and turnkey projects in Gujarat." />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Ar. Vivek Bosmiya, VOAD Architecture & Interiors" />
-  <link rel="canonical" href="https://www.voad.in/portfolio" />
+  <meta name="author" content="Ar. Vivek Bosmiya, VOAD Architecture &amp; Interiors" />
+  <link rel="canonical" href="https://www.voad.in/blog" />
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -17,19 +16,17 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="VOAD Architecture &amp; Interiors" />
-  <meta property="og:title" content="Architecture &amp; Interior Design Portfolio | VOAD Rajkot" />
-  <meta property="og:description" content="Browse VOAD's completed architecture and interior design projects in Rajkot, Gujarat. Residential, heritage, commercial and turnkey projects across India." />
-  <meta property="og:url" content="https://www.voad.in/portfolio" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:title" content="Journal | Architecture &amp; Interior Design Insights | VOAD Rajkot" />
+  <meta property="og:description" content="Design insights, project guides, and architecture expertise from VOAD, Rajkot. Articles on interior design, heritage restoration, and residential architecture in Gujarat." />
+  <meta property="og:url" content="https://www.voad.in/blog" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&h=630&q=80" />
   <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Architecture &amp; Interior Design Portfolio | VOAD Rajkot" />
-  <meta name="twitter:description" content="Browse VOAD's completed architecture and interior design projects in Rajkot, Gujarat. Residential, heritage, commercial and turnkey projects across India." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80" />
+  <meta name="twitter:title" content="Journal | VOAD Architecture &amp; Interiors" />
+  <meta name="twitter:description" content="Design insights and architecture expertise from VOAD, Rajkot." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&h=630&q=80" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -37,11 +34,11 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "CollectionPage",
-        "@id": "https://www.voad.in/portfolio#webpage",
-        "url": "https://www.voad.in/portfolio",
-        "name": "Architecture & Interior Design Portfolio | VOAD Rajkot",
-        "description": "Browse VOAD's completed architecture and interior design projects in Rajkot, Gujarat. Residential homes, luxury interiors, heritage havelis, commercial offices and turnkey projects across India.",
+        "@type": "Blog",
+        "@id": "https://www.voad.in/blog#webpage",
+        "url": "https://www.voad.in/blog",
+        "name": "VOAD Journal | Architecture & Interior Design Insights",
+        "description": "Design insights, project guides, and architecture expertise from VOAD, Rajkot.",
         "isPartOf": {"@id": "https://www.voad.in/#website"},
         "publisher": {"@id": "https://www.voad.in/#organization"},
         "inLanguage": "en-IN"
@@ -50,7 +47,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.voad.in/"},
-          {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.voad.in/portfolio"}
+          {"@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.voad.in/blog"}
         ]
       }
     ]
@@ -74,9 +71,85 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/projects.css" />
+  <style>
+    /* ── Blog grid ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .blog-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease;
+      background: var(--bg);
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+    .blog-card-img-wrap {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+    .blog-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+      display: block;
+    }
+    .blog-card:hover .blog-card-img { transform: scale(1.04); }
+    .blog-card-body { padding: 1.75rem; }
+    .blog-card-category {
+      font-size: .62rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .6rem;
+    }
+    .blog-card-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.45;
+      margin-bottom: .75rem;
+      color: var(--text);
+    }
+    .blog-card-excerpt {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .blog-card-meta {
+      display: flex;
+      gap: .75rem;
+      margin-top: 1.25rem;
+      font-size: .73rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+    .blog-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--muted);
+      font-size: .9rem;
+      letter-spacing: .05em;
+    }
+    @media (max-width: 680px) {
+      .blog-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- ── LOADER ──────────────────────────────────────────── -->
   <div class="loader">
     <span class="loader-logo">V O A D</span>
     <span class="loader-logo-sub">Architecture &amp; Interiors</span>
@@ -84,15 +157,17 @@
     <span class="loader-pct">0%</span>
   </div>
 
+  <!-- ── MOBILE NAV ──────────────────────────────────────── -->
   <div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
     <button class="mobile-close" aria-label="Close menu">&times;</button>
     <a href="/">Home</a>
     <a href="/portfolio">Portfolio</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
-    <a href="/blog">Blog</a>
+    <a href="/blog" class="active">Blog</a>
   </div>
 
+  <!-- ── NAVIGATION ──────────────────────────────────────── -->
   <nav aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="VOAD Home">
       <span class="nav-logo-mark">V O A D</span>
@@ -100,70 +175,49 @@
     </a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/portfolio" class="active">Portfolio</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li><a href="/blog">Blog</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
     </ul>
     <button class="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
+  <!-- ── HERO ────────────────────────────────────────────── -->
   <header class="page-hero">
-    <div class="page-hero-bg" data-setting="portfolioHeroImage"
-         style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80');"></div>
+    <div class="page-hero-bg"
+         style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1800&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-      <h1>Our Portfolio</h1>
-      <p>Residential, commercial, heritage &amp; interior projects across Gujarat and India</p>
+      <h1>Journal</h1>
+      <p>Ideas, insights, and expertise in architecture and interior design</p>
     </div>
   </header>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span class="ticker-item">Residential Architecture <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Interior Design <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Commercial &amp; Office Design <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Heritage Designs <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Renovation &amp; Remodelling <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Turnkey Solutions <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Residential Architecture <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Interior Design <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Commercial &amp; Office Design <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Heritage Designs <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Renovation &amp; Remodelling <span class="ticker-dot">&middot;</span></span>
-      <span class="ticker-item">Turnkey Solutions <span class="ticker-dot">&middot;</span></span>
-    </div>
-  </div>
-
+  <!-- ── BLOG GRID ───────────────────────────────────────── -->
   <section class="section section-white">
-
-    <div class="filter-bar" role="group" aria-label="Filter projects by category">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="residential">Residential</button>
-      <button class="filter-btn" data-filter="interior">Interior Design</button>
-      <button class="filter-btn" data-filter="commercial">Commercial</button>
-      <button class="filter-btn" data-filter="heritage">Heritage</button>
-      <button class="filter-btn" data-filter="renovation">Renovation</button>
-      <button class="filter-btn" data-filter="turnkey">Turnkey</button>
+    <p class="section-label reveal">Latest Articles</p>
+    <h2 class="section-heading reveal delay-1">Design Thinking from VOAD</h2>
+    <div id="blog-grid" class="blog-grid" aria-label="Blog posts">
+      <p class="blog-empty">Loading articles&hellip;</p>
     </div>
-
-    <div id="all-projects" class="proj-grid">
-      <div class="proj-skeleton">Loading projects&hellip;</div>
-    </div>
-
   </section>
 
+  <!-- ── CTA ─────────────────────────────────────────────── -->
   <section class="section section-dark" style="text-align:center;">
     <p class="section-label reveal" style="color:var(--accent);">Start a Project</p>
-    <h2 class="section-heading reveal delay-1" style="color:var(--bg);max-width:560px;margin:0 auto 1rem;">
-      Ready to Design Your Space?
+    <h2 class="section-heading reveal delay-1" style="color:var(--bg);max-width:520px;margin:0 auto 1rem;">
+      Ready to Bring Your Vision to Life?
     </h2>
-    <p class="reveal delay-2" style="color:rgba(248,247,244,.55);font-size:1rem;max-width:440px;margin:0 auto 2.5rem;line-height:1.8;">Tell us about your project. We would love to explore what we can create together.</p>
+    <p class="reveal delay-2" style="color:rgba(248,247,244,.55);font-size:1rem;max-width:420px;margin:0 auto 2.5rem;line-height:1.8;">
+      Every project at VOAD begins with a conversation. We would love to hear about yours.
+    </p>
     <a href="/contact" class="contact-btn reveal delay-3">Get In Touch &rarr;</a>
   </section>
 
+  <!-- ── FOOTER ───────────────────────────────────────────── -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
@@ -216,13 +270,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/motion.js"></script>
-  <script src="js/config.js?v=4"></script>
-  <script src="js/data.js?v=4"></script>
-  <script src="js/render.js?v=4"></script>
   <script src="js/main.js?v=4"></script>
-  <script src="js/settings.js?v=4"></script>
+  <script src="js/blog.js?v=1"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', initPortfolio);
+    document.addEventListener('DOMContentLoaded', initBlog);
   </script>
 </body>
 </html>
