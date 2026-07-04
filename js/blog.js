@@ -74,6 +74,37 @@ async function initBlogPost() {
       return;
     }
 
+    /* Inject BlogPosting schema — in static HTML for Google's first crawl wave */
+    const schemaEl = document.createElement('script');
+    schemaEl.type = 'application/ld+json';
+    schemaEl.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "image": post.coverImage,
+      "author": {
+        "@type": "Person",
+        "name": post.author || "Ar. Vivek Bosmiya",
+        "url": "https://www.voad.in/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "VOAD Architecture & Interiors",
+        "url": "https://www.voad.in",
+        "logo": { "@type": "ImageObject", "url": "https://www.voad.in/favicon.svg" }
+      },
+      "datePublished": post.date,
+      "dateModified": post.date,
+      "url": `https://www.voad.in/blog-post?id=${post.id}`,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://www.voad.in/blog-post?id=${post.id}`
+      },
+      "isPartOf": { "@id": "https://www.voad.in/blog#webpage" }
+    });
+    document.head.appendChild(schemaEl);
+
     /* Update meta tags for SEO */
     document.title = `${post.title} | VOAD Architecture & Interiors`;
     setMeta('post-description', post.excerpt);
