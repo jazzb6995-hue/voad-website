@@ -133,6 +133,108 @@
     .post-content a:hover { color: var(--accent); }
     .post-content strong { font-weight: 500; }
 
+    /* ── Two-column post layout ── */
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 5rem;
+      align-items: start;
+    }
+    .post-sidebar {
+      position: sticky;
+      top: 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .sidebar-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+    .sidebar-label {
+      font-size: .6rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .85rem;
+    }
+    .sidebar-author-name {
+      font-size: .95rem;
+      font-weight: 500;
+      margin-bottom: .35rem;
+      color: var(--text);
+    }
+    .sidebar-author-role {
+      font-size: .82rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .sidebar-author-link {
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: border-color .2s;
+    }
+    .sidebar-author-link:hover { border-color: var(--text); }
+    .sidebar-related-post {
+      display: flex;
+      gap: .85rem;
+      text-decoration: none;
+      color: inherit;
+      padding: .85rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: opacity .2s;
+    }
+    .sidebar-related-post:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-related-post:hover { opacity: .7; }
+    .sidebar-related-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .sidebar-related-title {
+      font-size: .84rem;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: .3rem;
+      color: var(--text);
+    }
+    .sidebar-related-meta {
+      font-size: .7rem;
+      color: var(--muted);
+      letter-spacing: .03em;
+    }
+    .sidebar-cta-heading {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.4;
+      margin: .4rem 0 .65rem;
+      color: var(--text);
+    }
+    .sidebar-cta-body {
+      font-size: .82rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 1080px) {
+      .post-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .post-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    }
+    @media (max-width: 640px) {
+      .post-sidebar { grid-template-columns: 1fr; }
+    }
+
     /* ── Post CTA ── */
     .post-cta {
       margin-top: 4rem;

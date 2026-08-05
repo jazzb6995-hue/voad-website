@@ -117,6 +117,20 @@ async function initBlogPost() {
     setMeta('tw-description', post.excerpt);
     setMeta('tw-image',    post.coverImage);
 
+    /* Build related posts: same category first, then fill with recent */
+    const sameCategory = blogs.filter(b => b.published && b.id !== post.id && b.category === post.category);
+    const otherPosts   = blogs.filter(b => b.published && b.id !== post.id && b.category !== post.category);
+    const related      = [...sameCategory, ...otherPosts].slice(0, 3);
+
+    const relatedHTML = related.map(r => `
+      <a class="sidebar-related-post" href="/blog-post?id=${r.id}">
+        <img class="sidebar-related-img" src="${r.coverImage}?auto=format&fit=crop&w=120&h=120&q=70" alt="${r.title}" loading="lazy" />
+        <div>
+          <p class="sidebar-related-title">${r.title}</p>
+          <p class="sidebar-related-meta">${r.category} &middot; ${r.readTime}</p>
+        </div>
+      </a>`).join('');
+
     root.innerHTML = `
       <div class="post-hero" style="background-image:url('${post.coverImage}');">
         <div class="post-hero-overlay"></div>
@@ -134,19 +148,43 @@ async function initBlogPost() {
       </div>
 
       <section class="section section-white">
-        <div class="post-body">
-          <div class="post-content">
-            ${post.content}
-          </div>
-          <div class="post-cta">
-            <p class="section-label">Start a Project</p>
-            <h2 class="post-cta-heading">Ready to Work Together?</h2>
-            <p class="post-cta-body">Every project at VOAD begins with a conversation. Tell us about your space and we will take it from there.</p>
-            <div class="post-cta-links">
-              <a href="/contact" class="contact-btn">Get In Touch &rarr;</a>
-              <a href="/blog" class="post-back-link">&larr; Back to Journal</a>
+        <div class="post-layout">
+          <div class="post-body">
+            <div class="post-content">
+              ${post.content}
+            </div>
+            <div class="post-cta">
+              <p class="section-label">Start a Project</p>
+              <h2 class="post-cta-heading">Ready to Work Together?</h2>
+              <p class="post-cta-body">Every project at VOAD begins with a conversation. Tell us about your space and we will take it from there.</p>
+              <div class="post-cta-links">
+                <a href="/contact" class="contact-btn">Get In Touch &rarr;</a>
+                <a href="/blog" class="post-back-link">&larr; Back to Journal</a>
+              </div>
             </div>
           </div>
+
+          <aside class="post-sidebar">
+            <div class="sidebar-card">
+              <p class="sidebar-label">Written By</p>
+              <p class="sidebar-author-name">${post.author || 'Ar. Vivek Bosmiya'}</p>
+              <p class="sidebar-author-role">Architect and Interior Designer. Principal at VOAD Architecture &amp; Interiors, Rajkot. Over a decade of practice across residential, heritage, and commercial projects in Gujarat and beyond.</p>
+              <a href="/about" class="sidebar-author-link">About the Studio &rarr;</a>
+            </div>
+
+            ${related.length ? `
+            <div class="sidebar-card">
+              <p class="sidebar-label">Related Articles</p>
+              ${relatedHTML}
+            </div>` : ''}
+
+            <div class="sidebar-card">
+              <p class="sidebar-label">Start a Project</p>
+              <h3 class="sidebar-cta-heading">Ready to Design Your Space?</h3>
+              <p class="sidebar-cta-body">Every project begins with a conversation. Tell us about your home or workspace.</p>
+              <a href="/contact" class="contact-btn" style="font-size:.78rem;padding:.6rem 1.2rem;">Get In Touch &rarr;</a>
+            </div>
+          </aside>
         </div>
       </section>`;
 
