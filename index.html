@@ -23,6 +23,7 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&h=630&q=80" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Interior of a VOAD-designed residence in Rajkot, Gujarat" />
   <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter Card -->
@@ -45,9 +46,9 @@
         "url": "https://www.voad.in",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.voad.in/favicon.svg",
-          "width": 32,
-          "height": 32
+          "url": "https://www.voad.in/images/voad-logo-schema.png",
+          "width": 512,
+          "height": 512
         },
         "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&h=630&q=80",
         "telephone": "+918160332950",
@@ -114,7 +115,15 @@
         "name": "VOAD Architecture & Interiors",
         "description": "Architecture and interior design studio in Rajkot, Gujarat, India.",
         "publisher": {"@id": "https://www.voad.in/#organization"},
-        "inLanguage": "en-IN"
+        "inLanguage": "en-IN",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.voad.in/blog?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "WebPage",
@@ -181,7 +190,10 @@
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preload" as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=80" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" onload="this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/projects.css" />
 </head>
@@ -255,7 +267,7 @@
       <div>
         <p class="section-label reveal">Selected Work</p>
         <h2 class="section-heading reveal delay-1">Crafted Works</h2>
-        <p class="section-body reveal delay-2" style="margin-top:.75rem;">Projects marked as featured in the admin panel appear here. Toggle any project as featured to include it in this section.</p>
+        <p class="section-body reveal delay-2" style="margin-top:.75rem;">A selection of completed projects across residential architecture, interior design, heritage restoration, and commercial spaces.</p>
       </div>
       <div class="slider-controls reveal delay-2">
         <button class="sl-btn sl-prev" aria-label="Previous">&#8592;</button>
@@ -455,6 +467,33 @@
     <div id="home-blog-grid" class="home-blog-grid"></div>
   </section>
 
+  <section class="section section-white" id="faq" aria-label="Frequently Asked Questions">
+    <div class="cards-intro" style="margin-bottom:2.5rem;">
+      <div>
+        <p class="section-label reveal">Common Questions</p>
+        <h2 class="section-heading reveal delay-1">Frequently Asked Questions</h2>
+      </div>
+    </div>
+    <div class="faq-list" style="max-width:780px;margin:0 auto;" itemscope itemtype="https://schema.org/FAQPage">
+      <details class="faq-item reveal" style="border-bottom:1px solid var(--border,rgba(0,0,0,.1));padding:1.25rem 0;" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-question" style="cursor:pointer;font-size:1.05rem;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;" itemprop="name">What services does VOAD Architecture &amp; Interiors offer in Rajkot?<span aria-hidden="true" style="font-size:1.4rem;line-height:1;flex-shrink:0;">+</span></summary>
+        <div class="faq-answer" style="padding-top:1rem;line-height:1.8;color:var(--text-secondary,var(--muted));" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">VOAD offers six core services from its Rajkot studio: Residential Architecture (bungalows, villas, farmhouses), Interior Design (luxury residences and hospitality), Commercial and Office Design, Heritage Designs (haveli restoration), Renovation and Remodelling, and complete Turnkey Solutions with delivery from concept to handover.</p></div>
+      </details>
+      <details class="faq-item reveal delay-1" style="border-bottom:1px solid var(--border,rgba(0,0,0,.1));padding:1.25rem 0;" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-question" style="cursor:pointer;font-size:1.05rem;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;" itemprop="name">Who is the architect at VOAD in Rajkot?<span aria-hidden="true" style="font-size:1.4rem;line-height:1;flex-shrink:0;">+</span></summary>
+        <div class="faq-answer" style="padding-top:1rem;line-height:1.8;color:var(--text-secondary,var(--muted));" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">VOAD is led by Ar. Vivek Bosmiya, Principal Architect and Interior Designer based in Rajkot, Gujarat. He has nine years of architectural practice and has completed over 70 projects across Gujarat and India, personally managing every project from brief to handover.</p></div>
+      </details>
+      <details class="faq-item reveal delay-2" style="border-bottom:1px solid var(--border,rgba(0,0,0,.1));padding:1.25rem 0;" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-question" style="cursor:pointer;font-size:1.05rem;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;" itemprop="name">Does VOAD take on projects outside Rajkot?<span aria-hidden="true" style="font-size:1.4rem;line-height:1;flex-shrink:0;">+</span></summary>
+        <div class="faq-answer" style="padding-top:1rem;line-height:1.8;color:var(--text-secondary,var(--muted));" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. VOAD is based in Rajkot and knows Gujarat's materials and craft traditions well, but takes on residential, commercial, and heritage projects across India, travelling to site wherever the work is located.</p></div>
+      </details>
+      <details class="faq-item reveal delay-3" style="border-bottom:1px solid var(--border,rgba(0,0,0,.1));padding:1.25rem 0;" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-question" style="cursor:pointer;font-size:1.05rem;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;" itemprop="name">What is VOAD's architecture and interior design process?<span aria-hidden="true" style="font-size:1.4rem;line-height:1;flex-shrink:0;">+</span></summary>
+        <div class="faq-answer" style="padding-top:1rem;line-height:1.8;color:var(--text-secondary,var(--muted));" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">VOAD follows a five-stage process: Brief and Discovery (understanding your lifestyle and aspirations), Concept Design (layouts and mood boards), Design Development (full drawings and material specifications), Construction Supervision (on-site coordination), and Handover (walk-through and documentation). Ar. Vivek Bosmiya remains your single point of contact throughout.</p></div>
+      </details>
+    </div>
+  </section>
+
   <section class="section section-dark" style="text-align:center;">
     <p class="section-label reveal" style="color:var(--accent);">Start a Project</p>
     <h2 class="section-heading reveal delay-1" style="color:var(--bg);max-width:580px;margin:0 auto 1rem;">Have a Project in Mind?</h2>
@@ -498,7 +537,7 @@
         <div>
           <p class="footer-col-head">Contact</p>
           <div class="footer-contact">
-            <span class="footer-contact-item">Rajkot, Gujarat, India</span>
+            <span class="footer-contact-item">RK Trade Tower, A/612, 150 Feet Ring Road, Rajkot, Gujarat 360006</span>
             <a href="tel:+918160332950" class="footer-contact-item">+91 81603 32950</a>
             <a href="/contact" class="footer-contact-item">Get In Touch &rarr;</a>
             <a href="https://www.instagram.com/architect.vivekbosmiya" target="_blank" rel="noopener" class="footer-contact-item">@architect.vivekbosmiya</a>
@@ -508,7 +547,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 VOAD Architecture &amp; Interiors. All rights reserved.</span>
-      <span>Rajkot, Gujarat &nbsp;&middot;&nbsp; Available across India</span>
+      <span>Rajkot, Gujarat &nbsp;&middot;&nbsp; Available across India &nbsp;&middot;&nbsp; <a href="/privacy-policy" style="color:inherit;opacity:.6;">Privacy Policy</a></span>
     </div>
   </footer>
 
