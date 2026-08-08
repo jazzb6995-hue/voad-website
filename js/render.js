@@ -50,7 +50,7 @@ async function fetchFromServer() {
 function cardHTML(project) {
   const catLabel = CATEGORY_LABELS[project.category] || project.category;
   return `
-    <a href="/project?id=${project.id}"
+    <a href="/project/${project.id}"
        class="proj-card"
        data-category="${project.category}">
       <div class="proj-card-img-wrap">
@@ -205,7 +205,7 @@ async function initProject() {
   const root = document.getElementById('project-root');
   if (!root) return;
 
-  const id = new URLSearchParams(location.search).get('id');
+  const id = location.pathname.split('/').pop() || new URLSearchParams(location.search).get('id');
 
   let projects = getLocalProjects();
   let project  = projects.find(p => p.id === id);
@@ -234,14 +234,14 @@ async function initProject() {
 
   /* Update SEO meta tags dynamically */
   const canonicalEl = document.getElementById('page-canonical');
-  if (canonicalEl) canonicalEl.href = `https://www.voad.in/project?id=${id}`;
+  if (canonicalEl) canonicalEl.href = `https://www.voad.in/project/${id}`;
   const descEl = document.getElementById('page-description');
   const desc = project.shortDesc || `${project.title} by VOAD Architecture & Interiors, Rajkot. ${project.scope || ''} project in ${project.location || 'India'}, ${project.year || ''}.`.trim();
   if (descEl) descEl.content = desc.slice(0, 160);
   const coverImg = project.cover || '';
   ['og-title', 'tw-title'].forEach(id => { const el = document.getElementById(id); if (el) el.content = document.title; });
   ['og-description', 'tw-description'].forEach(id => { const el = document.getElementById(id); if (el) el.content = desc.slice(0, 160); });
-  const ogUrl = document.getElementById('og-url'); if (ogUrl) ogUrl.content = `https://www.voad.in/project?id=${id}`;
+  const ogUrl = document.getElementById('og-url'); if (ogUrl) ogUrl.content = `https://www.voad.in/project/${id}`;
   if (coverImg) {
     ['og-image', 'tw-image'].forEach(id => { const el = document.getElementById(id); if (el) el.content = coverImg; });
   }
@@ -300,12 +300,12 @@ async function initProject() {
     ${buildGalleryMarkup(project)}
 
     <nav class="proj-nav-bar" aria-label="Project navigation">
-      <a href="/project?id=${prev.id}" class="proj-nav-link">
+      <a href="/project/${prev.id}" class="proj-nav-link">
         <span class="proj-nav-dir">← Previous</span>
         <span class="proj-nav-name">${prev.title}</span>
       </a>
       <a href="/portfolio" class="proj-nav-all">All Projects</a>
-      <a href="/project?id=${next.id}" class="proj-nav-link proj-nav-link--right">
+      <a href="/project/${next.id}" class="proj-nav-link proj-nav-link--right">
         <span class="proj-nav-dir">Next →</span>
         <span class="proj-nav-name">${next.title}</span>
       </a>

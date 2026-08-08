@@ -106,12 +106,12 @@ function buildProjectHTML(project, prev, next) {
     </section>
     ${galleryHTML}
     <nav class="proj-nav-bar" aria-label="Project navigation">
-      <a href="/project?id=${esc(prev.id)}" class="proj-nav-link">
+      <a href="/project/${esc(prev.id)}" class="proj-nav-link">
         <span class="proj-nav-dir">&larr; Previous</span>
         <span class="proj-nav-name">${esc(prev.title)}</span>
       </a>
       <a href="/portfolio" class="proj-nav-all">All Projects</a>
-      <a href="/project?id=${esc(next.id)}" class="proj-nav-link proj-nav-link--right">
+      <a href="/project/${esc(next.id)}" class="proj-nav-link proj-nav-link--right">
         <span class="proj-nav-dir">Next &rarr;</span>
         <span class="proj-nav-name">${esc(next.title)}</span>
       </a>
@@ -121,7 +121,7 @@ function buildProjectHTML(project, prev, next) {
 function buildPage(project, prev, next) {
   const title     = esc(project.title);
   const desc      = esc((project.shortDesc || `${project.title} by VOAD Architecture & Interiors, Rajkot.`).slice(0, 160));
-  const canonical = `https://www.voad.in/project?id=${esc(project.id)}`;
+  const canonical = `https://www.voad.in/project/${esc(project.id)}`;
   const imageUrl  = esc(project.cover);
   const catLabel  = CATEGORY_LABELS[project.category] || project.category;
 
@@ -130,8 +130,8 @@ function buildPage(project, prev, next) {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id': `https://www.voad.in/project?id=${project.id}`,
-        'url': `https://www.voad.in/project?id=${project.id}`,
+        '@id': `https://www.voad.in/project/${project.id}`,
+        'url': `https://www.voad.in/project/${project.id}`,
         'name': `${project.title} | VOAD Architecture & Interiors, Rajkot`,
         'description': (project.shortDesc || '').slice(0, 160),
         'isPartOf': { '@id': 'https://www.voad.in/#website' },
@@ -144,7 +144,7 @@ function buildPage(project, prev, next) {
         'itemListElement': [
           { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.voad.in/' },
           { '@type': 'ListItem', 'position': 2, 'name': 'Portfolio', 'item': 'https://www.voad.in/portfolio' },
-          { '@type': 'ListItem', 'position': 3, 'name': project.title, 'item': `https://www.voad.in/project?id=${project.id}` }
+          { '@type': 'ListItem', 'position': 3, 'name': project.title, 'item': `https://www.voad.in/project/${project.id}` }
         ]
       }
     ]
