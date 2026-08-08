@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
   <url>
     <loc>https://www.voad.in/</loc>
     <lastmod>2026-08-08</lastmod>
@@ -36,96 +37,58 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- Portfolio projects (8 real projects) -->
   <url>
-    <loc>https://www.voad.in/project?id=mehra-residence</loc>
+    <loc>https://www.voad.in/project?id=prasoonbhai-residence</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project?id=patel-villa</loc>
+    <loc>https://www.voad.in/project?id=niravbhai-residence</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project?id=soni-farmhouse</loc>
+    <loc>https://www.voad.in/project?id=nishitbhia-gajera-residence</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project?id=bhatt-bungalow</loc>
+    <loc>https://www.voad.in/project?id=vraj-vilas-haveli</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project?id=kapoor-estate</loc>
+    <loc>https://www.voad.in/project?id=shri-balmukund-prabhu-haveli</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project?id=sharma-living</loc>
+    <loc>https://www.voad.in/project?id=ravi-exports-corporate-headquarters</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project?id=suite-twelve</loc>
+    <loc>https://www.voad.in/project?id=bantesh-udhyog-corporate-office</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project?id=desai-kitchen</loc>
+    <loc>https://www.voad.in/project?id=khatri-ethnics</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.voad.in/project?id=the-loft</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/project?id=mehta-suite</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/project?id=ranchhodji-haveli</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/project?id=meridian-office</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/project?id=amber-boutique</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/project?id=canvas-studio</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/project?id=laxmi-haveli</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
+  <!-- Blog posts (14 real posts) -->
   <url>
     <loc>https://www.voad.in/blog-post?id=why-home-design-costs-vary</loc>
     <lastmod>2026-08-08</lastmod>
