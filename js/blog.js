@@ -54,6 +54,7 @@ async function initBlog() {
    SINGLE POST  (blog-post.html)
    ──────────────────────────────────────────── */
 async function initBlogPost() {
+  if (window.__SSR_BLOG_POST__) return;
   const root = document.getElementById('post-root');
   if (!root) return;
 
