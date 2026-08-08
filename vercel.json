@@ -1,7 +1,8 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/blog-post", "destination": "/api/blog-post" }
+    { "source": "/blog-post", "destination": "/api/blog-post" },
+    { "source": "/project", "destination": "/api/project" }
   ],
   "headers": [
     {

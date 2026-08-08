@@ -21,8 +21,14 @@ Disallow: /
 
 User-agent: *
 Allow: /
+Allow: /api/blog-post
+Allow: /api/project
 Disallow: /admin/
 Disallow: /api/admin
+Disallow: /api/auth
+Disallow: /api/blogs
+Disallow: /api/projects
+Disallow: /api/config
 Disallow: /api/contact
 Disallow: /api/settings
 

@@ -201,6 +201,7 @@ function buildGalleryMarkup(project) {
 }
 
 async function initProject() {
+  if (window.__SSR_PROJECT__) return;
   const root = document.getElementById('project-root');
   if (!root) return;
 
