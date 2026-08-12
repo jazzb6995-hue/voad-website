@@ -301,8 +301,11 @@
             if (prev) prev.style.backgroundImage = `url('${data.secure_url}')`;
             const inp = document.getElementById('url-' + key);
             if (inp) inp.value = data.secure_url;
+            await autoSave();
           } else {
-            showStatus('Upload failed: ' + (data.error?.message || 'Unknown error'), true);
+            const errMsg = data.error?.message || JSON.stringify(data);
+            console.error('Cloudinary error:', data);
+            showStatus('Upload failed: ' + errMsg, true);
           }
         } catch (e) {
           showStatus('Upload failed. Check your connection.', true);
@@ -321,6 +324,25 @@
       settings[key] = url;
       const prev = document.getElementById('prev-' + key);
       if (prev) prev.style.backgroundImage = `url('${url}')`;
+    }
+
+    /* ── AUTO-SAVE after upload ── */
+    async function autoSave() {
+      try {
+        const res = await fetch('/api/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+          body: JSON.stringify(settings)
+        });
+        const data = await res.json();
+        if (data.ok) {
+          showStatus('Photo uploaded and saved successfully.');
+        } else {
+          showStatus('Photo uploaded but save failed: ' + (data.error || 'Unknown error'), true);
+        }
+      } catch {
+        showStatus('Photo uploaded but save failed. Try clicking Save All Changes.', true);
+      }
     }
 
     /* ── SAVE ── */
