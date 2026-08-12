@@ -78,7 +78,7 @@ const POST_STYLES = `<style>
 
 function buildPostHTML(post, related) {
   const relatedHTML = related.map(r => `
-    <a class="sidebar-related-post" href="/blog-post?id=${esc(r.id)}">
+    <a class="sidebar-related-post" href="/blog/${esc(r.id)}">
       <img class="sidebar-related-img" src="${esc(r.coverImage)}?auto=format&amp;fit=crop&amp;w=120&amp;h=120&amp;q=70" alt="${esc(r.title)}" loading="lazy" />
       <div>
         <p class="sidebar-related-title">${esc(r.title)}</p>
@@ -137,7 +137,7 @@ function buildPostHTML(post, related) {
 function buildPage(post, related) {
   const title      = esc(post.title);
   const excerpt    = esc(post.excerpt);
-  const canonical  = `https://www.voad.in/blog-post?id=${esc(post.id)}`;
+  const canonical  = `https://www.voad.in/blog/${esc(post.id)}`;
   const imageUrl   = esc(post.coverImage);
 
   const schema = JSON.stringify({
@@ -156,8 +156,8 @@ function buildPage(post, related) {
         },
         'datePublished': post.date,
         'dateModified': post.date,
-        'url': `https://www.voad.in/blog-post?id=${post.id}`,
-        'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://www.voad.in/blog-post?id=${post.id}` },
+        'url': `https://www.voad.in/blog/${post.id}`,
+        'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://www.voad.in/blog/${post.id}` },
         'isPartOf': { '@id': 'https://www.voad.in/blog#blog' }
       },
       {
@@ -165,7 +165,7 @@ function buildPage(post, related) {
         'itemListElement': [
           { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.voad.in/' },
           { '@type': 'ListItem', 'position': 2, 'name': 'Journal', 'item': 'https://www.voad.in/blog' },
-          { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': `https://www.voad.in/blog-post?id=${post.id}` }
+          { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': `https://www.voad.in/blog/${post.id}` }
         ]
       }
     ]
