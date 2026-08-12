@@ -253,7 +253,9 @@ To link to other pages: &lt;a href=&quot;/contact&quot;&gt;Contact us&lt;/a&gt;"
     let cloudName = '', uploadPreset = '';
     async function loadConfig() {
       try {
-        const res  = await fetch('/api/config');
+        const res  = await fetch('/api/config', {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
         const conf = await res.json();
         cloudName    = conf.cloudName    || '';
         uploadPreset = conf.uploadPreset || '';

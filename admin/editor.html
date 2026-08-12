@@ -259,7 +259,9 @@
     /* ── LOAD CLOUDINARY CONFIG ── */
     async function loadConfig() {
       try {
-        const res  = await fetch('/api/config');
+        const res  = await fetch('/api/config', {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
         const data = await res.json();
         cloudName    = data.cloudName    || '';
         uploadPreset = data.uploadPreset || '';
