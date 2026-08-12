@@ -3,37 +3,37 @@
   <!-- Core pages -->
   <url>
     <loc>https://www.voad.in/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.voad.in/portfolio</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.voad.in/about</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.voad.in/contact</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.voad.in/blog</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.voad.in/privacy-policy</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -41,135 +41,135 @@
   <!-- Portfolio projects -->
   <url>
     <loc>https://www.voad.in/project/prasoonbhai-residence</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.voad.in/project/niravbhai-residence</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.voad.in/project/nishitbhia-gajera-residence</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.voad.in/project/vraj-vilas-haveli</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.voad.in/project/shri-balmukund-prabhu-haveli</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.voad.in/project/ravi-exports-corporate-headquarters</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.voad.in/project/bantesh-udhyog-corporate-office</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.voad.in/project/khatri-ethnics</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Blog posts -->
+  <!-- Blog posts — clean URLs -->
   <url>
-    <loc>https://www.voad.in/blog-post?id=why-home-design-costs-vary</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/why-home-design-costs-vary</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=how-long-does-a-design-project-take</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/how-long-does-a-design-project-take</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=turnkey-project-honest-guide</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/turnkey-project-honest-guide</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=hiring-interior-designer-rajkot</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/hiring-interior-designer-rajkot</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.voad.in/blog/heritage-haveli-restoration-gujarat</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.voad.in/blog/bungalow-vs-villa-gujarat-climate</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.voad.in/blog/turnkey-interior-project-guide</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=heritage-haveli-restoration-gujarat</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/interior-design-cost-guide-2026</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=bungalow-vs-villa-gujarat-climate</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/why-instagram-interior-designs-fail</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=turnkey-interior-project-guide</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/why-some-rooms-feel-right</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=interior-design-cost-guide-2026</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/how-much-space-does-a-home-need</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=why-instagram-interior-designs-fail</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/vastu-and-modern-design</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=why-some-rooms-feel-right</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/architect-vs-interior-designer</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/blog-post?id=how-much-space-does-a-home-need</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/blog-post?id=vastu-and-modern-design</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/blog-post?id=architect-vs-interior-designer</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.voad.in/blog-post?id=architecture-design-process-before-first-sketch</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://www.voad.in/blog/architecture-design-process-before-first-sketch</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

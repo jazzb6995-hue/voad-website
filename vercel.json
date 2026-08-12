@@ -2,9 +2,11 @@
   "cleanUrls": true,
   "redirects": [
     { "source": "/project", "has": [{"type": "query", "key": "id"}], "destination": "/project/:id", "permanent": true },
+    { "source": "/blog-post", "has": [{"type": "query", "key": "id", "value": "(?<slug>.+)"}], "destination": "/blog/:slug", "permanent": true },
     { "source": "/favicon.ico", "destination": "/favicon.svg", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/blog/:slug", "destination": "/api/blog-post?id=:slug" },
     { "source": "/blog-post", "destination": "/api/blog-post" },
     { "source": "/project/:id", "destination": "/api/project?id=:id" }
   ],
