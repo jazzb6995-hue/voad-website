@@ -295,8 +295,8 @@ function buildPage(post, related) {
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script defer src="/js/motion.js"></script>
-  <script defer src="/js/main.js?v=4"></script>
-  <script defer src="/js/blog.js?v=1"></script>
+  <script defer src="/js/main.js?v=5"></script>
+  <script defer src="/js/blog.js?v=2"></script>
 </body>
 </html>`;
 }
