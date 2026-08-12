@@ -40,19 +40,25 @@
 
   <!-- Portfolio projects -->
   <url>
-    <loc>https://www.voad.in/project/prasoonbhai-residence</loc>
+    <loc>https://www.voad.in/project/The-Ivory-House</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project/niravbhai-residence</loc>
+    <loc>https://www.voad.in/project/house-of-horizons</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.voad.in/project/nishitbhia-gajera-residence</loc>
+    <loc>https://www.voad.in/project/The-Framed-Residence</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.voad.in/project/THE-BRICK-HOUSE</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
