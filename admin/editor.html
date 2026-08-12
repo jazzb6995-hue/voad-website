@@ -267,34 +267,52 @@
     }
 
     /* ── LOAD EXISTING PROJECT IF EDITING ── */
-    async function loadProject(id) {
-      const res      = await fetch('/api/projects');
-      const projects = await res.json();
-      const p        = projects.find(x => x.id === id);
-      if (!p) return;
-
-      document.getElementById('page-title').textContent = 'Edit Project';
-      document.getElementById('f-title').value      = p.title      || '';
-      document.getElementById('f-id').value         = p.id         || '';
-      document.getElementById('f-category').value   = p.category   || 'residential';
-      document.getElementById('f-tagline').value    = p.tagline    || '';
-      document.getElementById('f-year').value       = p.year       || '';
-      document.getElementById('f-location').value   = p.location   || '';
-      document.getElementById('f-area').value       = p.area       || '';
-      document.getElementById('f-scope').value      = p.scope      || '';
-      document.getElementById('f-short-desc').value = p.shortDesc  || '';
-      document.getElementById('f-long-desc').value  = p.longDesc   || '';
-      document.getElementById('f-featured').checked = !!p.featured;
-
-      if (p.cover) {
-        coverUrl = p.cover;
-        showCoverPreview(p.cover);
+    function normalizeGallery(p) {
+      if (Array.isArray(p.gallery) && p.gallery.length) return [...p.gallery];
+      if (typeof p.gallery === 'string' && p.gallery.trim().startsWith('[')) {
+        try { return JSON.parse(p.gallery.replace(/'/g, '"')); } catch (_) {}
       }
+      return [p.gallery1, p.gallery2, p.gallery3, p.gallery4].filter(Boolean);
+    }
 
-      galleryUrls = Array.isArray(p.gallery) ? [...p.gallery] : [];
-      renderGallery();
+    async function loadProject(id) {
+      try {
+        const res = await fetch('/api/projects');
+        if (!res.ok) throw new Error('API returned ' + res.status);
+        const projects = await res.json();
+        if (!Array.isArray(projects)) throw new Error('Unexpected API response');
 
-      editingId = id;
+        const p = projects.find(x => x.id === id);
+        if (!p) {
+          showStatus('Project "' + id + '" not found. It may have been deleted.', true);
+          return;
+        }
+
+        document.getElementById('page-title').textContent = 'Edit Project';
+        document.getElementById('f-title').value      = p.title      || '';
+        document.getElementById('f-id').value         = p.id         || '';
+        document.getElementById('f-category').value   = p.category   || 'residential';
+        document.getElementById('f-tagline').value    = p.tagline    || '';
+        document.getElementById('f-year').value       = p.year       || '';
+        document.getElementById('f-location').value   = p.location   || '';
+        document.getElementById('f-area').value       = p.area       || '';
+        document.getElementById('f-scope').value      = p.scope      || '';
+        document.getElementById('f-short-desc').value = p.shortDesc  || '';
+        document.getElementById('f-long-desc').value  = p.longDesc   || '';
+        document.getElementById('f-featured').checked = !!(p.featured === true || String(p.featured).toLowerCase() === 'true');
+
+        if (p.cover) {
+          coverUrl = p.cover;
+          showCoverPreview(p.cover);
+        }
+
+        galleryUrls = normalizeGallery(p);
+        renderGallery();
+
+        editingId = id;
+      } catch (err) {
+        showStatus('Failed to load project: ' + err.message, true);
+      }
     }
 
     /* ── AUTO SLUG ── */
