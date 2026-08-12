@@ -361,11 +361,18 @@ function initContactForm() {
 
       if (data.ok) {
         form.reset();
-        btn.textContent = 'Message Sent ✓';
+        btn.textContent = ‘Message Sent ✓’;
         if (status) {
           status.textContent = "Thank you, we’ll be in touch within 24 hours.";
-          status.style.color = '';
-          status.style.display = 'block';
+          status.style.color = ‘’;
+          status.style.display = ‘block’;
+        }
+        if (typeof gtag === ‘function’) {
+          gtag(‘event’, ‘generate_lead’, {
+            event_category: ‘Contact’,
+            event_label: ‘Contact Form Submission’,
+            value: 1
+          });
         }
       } else {
         btn.textContent = 'Send Message →';

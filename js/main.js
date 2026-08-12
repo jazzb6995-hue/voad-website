@@ -148,4 +148,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── GA4 CONVERSION TRACKING ─────────────────────────── */
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_call', {
+          event_category: 'Contact',
+          event_label: a.getAttribute('href').replace('tel:', '')
+        });
+      }
+    });
+  });
+
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(a => {
+    a.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', { event_category: 'Contact' });
+      }
+    });
+  });
+
 });

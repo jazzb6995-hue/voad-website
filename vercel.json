@@ -3,7 +3,10 @@
   "redirects": [
     { "source": "/project", "has": [{"type": "query", "key": "id"}], "destination": "/project/:id", "permanent": true },
     { "source": "/blog-post", "has": [{"type": "query", "key": "id", "value": "(?<slug>.+)"}], "destination": "/blog/:slug", "permanent": true },
-    { "source": "/favicon.ico", "destination": "/favicon.svg", "permanent": false }
+    { "source": "/favicon.ico", "destination": "/favicon.svg", "permanent": false },
+    { "source": "/project/The-Ivory-House", "destination": "/project/the-ivory-house", "permanent": true },
+    { "source": "/project/The-Framed-Residence", "destination": "/project/the-framed-residence", "permanent": true },
+    { "source": "/project/THE-BRICK-HOUSE", "destination": "/project/the-brick-house", "permanent": true }
   ],
   "rewrites": [
     { "source": "/blog/:slug", "destination": "/api/blog-post?id=:slug" },
