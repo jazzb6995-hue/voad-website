@@ -22,7 +22,7 @@ async function initBlog() {
 
   try {
     const blogs = await fetchBlogs();
-    const published = blogs.filter(b => b.published);
+    const published = blogs.filter(b => b.published).sort((a, b) => new Date(b.date) - new Date(a.date));
 
     if (!published.length) {
       grid.innerHTML = '<p class="blog-empty">No posts yet. Check back soon.</p>';
@@ -211,7 +211,7 @@ async function initHomeBlog() {
   if (!grid) return;
   try {
     const blogs     = await fetchBlogs();
-    const published = blogs.filter(b => b.published).slice(0, 3);
+    const published = blogs.filter(b => b.published).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
     if (!published.length) { grid.closest('section').style.display = 'none'; return; }
     grid.innerHTML = published.map(b => `
       <a class="home-blog-card" href="/blog-post?id=${b.id}">
